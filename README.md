@@ -55,7 +55,7 @@ $ docker build -t pg-db .
 2.2- Create and run a new Docker container using the Postgres image created in the last step:
 
 ```console
-$ docker run --name rails-blog-db -p 5432:5432 -d pg-db
+$ docker run --name gs-money-db -p 5432:5432 -d pg-db
 ```
 
 #### 3- Build the project's database schema
