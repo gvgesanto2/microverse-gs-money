@@ -1,0 +1,7 @@
+<ul class="c-transactions__list">
+  <% transactions.each do |transaction| %>
+    <li>
+      <%= render "components/transaction_item", transaction: transaction %>
+    </li>
+  <% end %>
+</ul>

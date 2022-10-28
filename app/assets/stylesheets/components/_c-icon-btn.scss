@@ -1,0 +1,12 @@
+.c-icon-btn {
+  @include centerWithFlex;
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  background-color: transparent;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

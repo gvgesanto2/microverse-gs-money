@@ -5,9 +5,29 @@
 // Import reset and base styles
 @import 'base/base';
 
-// Import components styles
+// Import typography classess
+@import 'base/typography';
+
+// Import components classes
+@import 'components/c-icon';
+@import 'components/c-icon-btn';
+@import 'components/c-logo';
+@import 'components/c-header';
+@import 'components/c-horizontal-list';
+@import 'components/c-btn';
+@import 'components/c-card';
+@import 'components/c-summary';
+@import 'components/c-summary-item';
+@import 'components/c-transactions';
+@import 'components/c-transaction-li';
+@import 'components/c-categories-filter';
+@import 'components/c-simple-card';
+
+// Import layout styles
+@import 'layout/l-main';
 
 // Import pages styles
+@import 'pages/p-transactions';
 
 // Import utility classes
 @import 'base/utilities';

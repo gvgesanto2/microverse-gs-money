@@ -1,0 +1,16 @@
+.c-btn {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+  color: var(--color-white);
+  background-color: var(--color-primary-300);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.6rem;
+
+  @include respond-to('min', 'screen-lg') {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding: 1.2rem 3.2rem;
+  }
+}

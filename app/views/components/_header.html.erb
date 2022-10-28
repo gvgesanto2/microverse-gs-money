@@ -1,0 +1,42 @@
+<header class="c-header">
+  <div class="c-header__content">
+    <div class="c-header__start">
+      <%= button_to nil, 
+        class: "c-icon-btn c-header__hamburger-btn" do 
+      %>
+        <svg class="c-icon--lg">
+          <use xlink:href=<%= image_url("icons/sprite.svg#menu")%>></use>
+        </svg>
+      <% end %>
+      <%= link_to root_path do %>
+        <div class="c-header__logo c-logo">
+          <img class="c-logo__img" src=<%= image_url("logo.svg") %> alt="logo" />
+          <span class="c-logo__title">
+            GS Money
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <div class="c-header__center">
+      <nav class="c-header__nav">
+        <ul class="c-horizontal-list">
+          <li>
+            <%= link_to "home", root_path, class: "c-header__nav-link" %>
+          </li>
+           <li>
+            <%= link_to "categories", categories_path, class: "c-header__nav-link" %>
+          </li>
+           <li>
+            <%= link_to "transactions", money_transactions_path, class: "c-header__nav-link" %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="c-header__end">
+      <%= button_to "New transaction", 
+        nil, 
+        class: "c-btn" 
+      %>
+    </div>
+  </div>
+</header>

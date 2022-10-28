@@ -3,7 +3,7 @@ class MoneyTransaction < ApplicationRecord
   has_many :categories_transactions, dependent: :destroy
   has_many :categories, through: :categories_transactions
 
-  enum type: %i[expense income]
+  enum its_type: %i[expense income]
 
   after_initialize :set_default_type, if: :new_record?
 
@@ -13,6 +13,6 @@ class MoneyTransaction < ApplicationRecord
   private
 
   def set_default_type
-    self.type ||= :expense
+    self.its_type ||= :expense
   end 
 end

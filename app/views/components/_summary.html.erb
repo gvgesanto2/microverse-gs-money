@@ -1,0 +1,56 @@
+<div class="c-summary u-scroll-viewport">
+  <ul class="c-summary__list u-scroll-content">
+    <li class="c-summary-item c-card">
+      <header class="c-summary-item__header">
+        <h3 class="c-summary-item__title">
+          Incomes
+        </h3>
+        <svg class="c-summary-item__icon">
+          <use xlink:href=<%= image_url("icons/sprite.svg#income")%>></use>
+        </svg>
+      </header>
+
+      <p class="c-summary-item__value">
+        <%= number_to_currency(@incomes, :unit => "$ ") %>
+      </p>
+      <p class="c-summary-item__date">
+        Last one created <%= time_ago_in_words(@last_income_date) %> ago
+      </p>
+    </li>
+    <li class="c-summary-item c-card">
+      <header class="c-summary-item__header">
+        <h3 class="c-summary-item__title">
+          Expenses
+        </h3>
+        <svg class="c-summary-item__icon">
+          <use xlink:href=<%= image_url("icons/sprite.svg#expense")%>></use>
+        </svg>
+      </header>
+
+      <p class="c-summary-item__value">
+        <%= number_to_currency(@expenses, :unit => "$ ") %>
+      </p>
+      <p class="c-summary-item__date">
+        Last one created <%= time_ago_in_words(@last_expense_date) %> ago
+      </p>
+    </li>
+    <li class="c-summary-item c-summary-item--total c-card">
+      <header class="c-summary-item__header">
+        <h3 class="c-summary-item__title">
+          Total
+        </h3>
+        <svg class="c-summary-item__icon">
+          <use xlink:href=<%= image_url("icons/sprite.svg#total")%>></use>
+        </svg>
+      </header>
+
+      <p class="c-summary-item__value">
+        <%= number_to_currency(@total, :unit => "$ ") %>
+      </p>
+      <p class="c-summary-item__date">
+        <%= "#{@first_transaction_date.strftime("%m/%d/%Y")} to #{@last_transaction_date.strftime("%m/%d/%Y")}" %> 
+      </p>
+    </li>
+  </ul>
+</div>
+

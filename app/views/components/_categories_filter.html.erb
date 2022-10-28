@@ -1,0 +1,62 @@
+<section class="c-categories-filter">
+  <header class="c-categories-filter__header">
+    <h2 class="t-heading t-heading--md">
+      Filter by category
+    </h2>
+    <span class="t-text t-text--bold">
+      <%= pluralize(2, "item") %>
+    </span>
+  </header>
+  <div class="c-categories-filter__content c-card">
+    <div class="u-scroll-viewport">
+      <ul class="c-categories-filter__list u-scroll-content">
+        <li>
+          <article class="c-simple-card c-simple-card--active">
+            <div class="c-simple-card__custom-img">
+              all
+            </div>
+            <h3 class="c-simple-card__title">
+              All categories
+            </h3>
+          </article>
+        </li>
+        <li>
+          <article class="c-simple-card">
+            <img 
+              src=<%= image_url("category_placeholder.png") %> 
+              class="c-simple-card__img"
+              alt="category icon" 
+            />
+            <h3 class="c-simple-card__title">
+              Some
+            </h3>
+          </article>
+        </li>
+        <li>
+          <article class="c-simple-card">
+            <img 
+              src=<%= image_url("category_placeholder.png") %> 
+              class="c-simple-card__img"
+              alt="category icon" 
+            />
+            <h3 class="c-simple-card__title">
+              Some
+            </h3>
+          </article>
+        </li>
+        <li>
+          <article class="c-simple-card">
+            <img 
+              src=<%= image_url("category_placeholder.png") %> 
+              class="c-simple-card__img"
+              alt="category icon" 
+            />
+            <h3 class="c-simple-card__title">
+              Some
+            </h3>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

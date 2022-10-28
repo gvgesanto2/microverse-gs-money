@@ -2,9 +2,13 @@
 <section class="p-transactions">
   <%= render "components/summary" %>
 
+  <%= render "components/categories_filter" %>
+
   <section class="c-transactions">
     <header class="c-transactions__header">
-      <h2 class="t-heading t-heading--md">2 Transactions</h2>
+      <h2 class="t-heading t-heading--md">
+        <%= pluralize(@transactions.length, "Transaction") %>
+      </h2>
       <%= link_to root_path, class: "c-icon-btn" do %>
         <svg class="c-icon--lg">
           <use xlink:href=<%= image_url("icons/sprite.svg#chevron-left")%>></use>
@@ -13,6 +17,6 @@
     </header>
     
 
-    <%= render "components/transactions_list" %>
+    <%= render "components/transactions_list", transactions: @transactions %>
   </section>
 </section>

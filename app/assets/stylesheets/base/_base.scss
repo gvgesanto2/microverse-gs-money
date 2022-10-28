@@ -15,11 +15,15 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: var(--color-text-body);
   background-color: var(--color-grey-100);
   // -webkit-font-smoothing: antialiased;
+
+  @include respond-to('min', 'screen-lg') {
+    font-size: 1.6rem;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, strong {

@@ -1,0 +1,19 @@
+<% transaction_type_class = transaction.its_type == "income" ? "c-transaction-li--income" : "c-transaction-li--expense" %>
+
+<% prefix = transaction.its_type == "expense" ? "-$ " : "$ " %>
+<% formatted_price = number_to_currency(transaction.price, :unit => prefix) %>
+
+<article class="<%= "c-transaction-li #{transaction_type_class} c-card" %>">
+  <h3 class="t-heading"><%= transaction.name.capitalize() %></h3>
+  <p class="c-transaction-li__value t-heading t-heading--md">
+    <%= formatted_price %>
+  </p>
+  <div class="c-transaction-li__info">
+    <span class="t-text">
+      Sales
+    </span>
+    <span class="t-text">
+      <%= transaction.created_at.strftime("%m/%d/%Y") %>
+    </span>
+  </div>
+</article>
