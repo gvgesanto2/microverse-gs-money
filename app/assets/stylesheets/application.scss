@@ -22,12 +22,15 @@
 @import 'components/c-transaction-li';
 @import 'components/c-categories-filter';
 @import 'components/c-simple-card';
+@import 'components/c-category-item';
+@import 'components/c-categories';
 
 // Import layout styles
 @import 'layout/l-main';
 
 // Import pages styles
 @import 'pages/p-transactions';
+@import 'pages/p-categories';
 
 // Import utility classes
 @import 'base/utilities';

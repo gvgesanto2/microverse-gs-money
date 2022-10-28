@@ -3,7 +3,7 @@
     <li class="c-summary-item">
       <header class="c-summary-item__header">
         <h3 class="c-summary-item__title">
-          Incomes
+          Positives
         </h3>
         <svg class="c-summary-item__icon">
           <use xlink:href=<%= image_url("icons/sprite.svg#income")%>></use>
@@ -11,16 +11,16 @@
       </header>
 
       <p class="c-summary-item__value">
-        <%= number_to_currency(@incomes, :unit => "$ ") %>
+        <%= number_to_currency(1000, :unit => "$ ") %>
       </p>
       <p class="c-summary-item__date">
-        Last one created <%= time_ago_in_words(@last_income_date) %> ago
+        Sum of all categories with a positive balance
       </p>
     </li>
     <li class="c-summary-item">
       <header class="c-summary-item__header">
         <h3 class="c-summary-item__title">
-          Expenses
+          Negatives
         </h3>
         <svg class="c-summary-item__icon">
           <use xlink:href=<%= image_url("icons/sprite.svg#expense")%>></use>
@@ -28,10 +28,10 @@
       </header>
 
       <p class="c-summary-item__value">
-        <%= number_to_currency(@expenses, :unit => "$ ") %>
+        <%= number_to_currency(500, :unit => "$ ") %>
       </p>
       <p class="c-summary-item__date">
-        Last one created <%= time_ago_in_words(@last_expense_date) %> ago
+        Sum of all categories with a nagative balance
       </p>
     </li>
     <li class="c-summary-item c-summary-item--total">
@@ -45,10 +45,10 @@
       </header>
 
       <p class="c-summary-item__value">
-        <%= number_to_currency(@total, :unit => "$ ") %>
+        <%= number_to_currency(500, :unit => "$ ") %>
       </p>
       <p class="c-summary-item__date">
-        <%= "#{@first_transaction_date.strftime("%m/%d/%Y")} to #{@last_transaction_date.strftime("%m/%d/%Y")}" %> 
+        Sum of all categories 
       </p>
     </li>
   </ul>

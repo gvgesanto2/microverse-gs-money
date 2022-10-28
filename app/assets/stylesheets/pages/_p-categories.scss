@@ -1,0 +1,9 @@
+.p-categories {
+  & > *:not(:last-child) {
+    margin-bottom: 3.2rem;
+
+    @include respond-to('min', 'screen-lg') {
+      margin-bottom: 6.4rem;
+    }
+  }
+}

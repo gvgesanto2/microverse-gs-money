@@ -1,1 +1,63 @@
-<div>Categories</div>
+<section class="p-categories">
+
+  <%= render "components/categories_summary" %>
+
+  <section class="c-categories">
+    <header class="c-categories__header">
+      <h2 class="t-heading t-heading--md">
+        <%= pluralize(3, "Category") %>
+      </h2>
+      <%= link_to root_path, class: "c-icon-btn" do %>
+        <svg class="c-icon--lg">
+          <use xlink:href=<%= image_url("icons/sprite.svg#chevron-left")%>></use>
+        </svg>
+      <% end %>
+    </header>
+    <div class="c-categories__grid">
+      <article class="c-category-item c-card">
+        <img 
+          src=<%= image_url("category_placeholder.png") %> 
+          class="c-category-item__img" 
+          alt="" 
+        />
+        <div class="c-category-item__content">
+          <div class="c-category-item__info">
+            <h3 class="t-text t-text--bold c-category-item__title">
+              Mc donalds fastfood
+            </h3>
+            <h3 class="t-heading t-heading--sm c-category-item__total">
+              $ 100.00
+            </h3>
+          </div>
+
+          <p class="t-text t-text--sm c-category-item__date">
+            20/20/2022
+          </p>
+        </div>
+      </article>
+
+      <article class="c-category-item c-card">
+        <img 
+          src=<%= image_url("category_placeholder.png") %> 
+          class="c-category-item__img" 
+          alt="" 
+        />
+        <div class="c-category-item__content">
+          <div class="c-category-item__info">
+            <h3 class="t-text t-text--bold c-category-item__title">
+              Mc donalds fastfood
+            </h3>
+            <h3 class="t-heading t-heading--sm c-category-item__total">
+              $ 100.00
+            </h3>
+          </div>
+
+          <p class="t-text t-text--sm c-category-item__date">
+            20/20/2022
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+</section>
+

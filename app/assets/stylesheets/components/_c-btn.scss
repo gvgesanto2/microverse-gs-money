@@ -7,10 +7,15 @@
   border: none;
   border-radius: 0.5rem;
   padding: 1.1rem 1.6rem;
+  transition: all 0.2s;
 
   @include respond-to('min', 'screen-lg') {
     font-size: 1.6rem;
     line-height: 2.4rem;
     padding: 1.2rem 3.2rem;
+  }
+
+  &:hover {
+    filter: brightness(1.035);
   }
 }

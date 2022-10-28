@@ -43,6 +43,16 @@
     font-weight: 600;
   }
 
+  &--sm {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+
+    @include respond-to('min', 'screen-lg') {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+  }
+
   &--md {
     font-size: 2rem;
     line-height: 3rem;
