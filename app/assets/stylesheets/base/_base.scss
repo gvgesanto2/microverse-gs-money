@@ -49,8 +49,9 @@ option {
 }
 
 button {
+  border: none;
   cursor: pointer;
-}
+} 
 
 [disabled] {
   cursor: not-allowed;

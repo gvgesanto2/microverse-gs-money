@@ -8,7 +8,7 @@ class MoneyTransaction < ApplicationRecord
   after_initialize :set_default_type, if: :new_record?
 
   validates :name, :price, presence: true
-  validates :price, numericality: { only_float: true, greater_than_or_equal_to: 0 }
+  validates :price, numericality: { only_float: true }
 
   private
 

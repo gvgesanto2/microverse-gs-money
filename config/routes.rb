@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  resources :categories, only: [:index, :create, :destroy] do
+  resources :categories, only: [:index, :create, :new, :destroy] do
     resources :money_transactions, only: [:index] 
   end
 

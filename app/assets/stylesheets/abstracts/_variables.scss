@@ -5,7 +5,9 @@
   --color-primary-700: #363f5f;
 
   --color-grey-100: #f0f2f5;
+  --color-grey-150: #E7E9EE;
   --color-grey-200: #e1e1e6;
+  --color-grey-250: #d7d7d7;
   --color-grey-400: #969cb3;
   --color-grey-500: #737380;
 
@@ -25,6 +27,9 @@
 
   --color-positive-value: var(--color-green-400);
   --color-negative-value: var(--color-red-300);
+
+  // border-radius
+  --border-radius: 0.5rem;
 
   // Shadows
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.2);

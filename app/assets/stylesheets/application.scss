@@ -24,13 +24,19 @@
 @import 'components/c-simple-card';
 @import 'components/c-category-item';
 @import 'components/c-categories';
+@import 'components/c-form';
+@import 'components/c-input';
+@import 'components/c-full-btn';
+@import 'components/c-link';
 
 // Import layout styles
 @import 'layout/l-main';
+@import 'layout/l-form-section';
 
 // Import pages styles
 @import 'pages/p-transactions';
 @import 'pages/p-categories';
+@import 'pages/p-new-category';
 
 // Import utility classes
 @import 'base/utilities';

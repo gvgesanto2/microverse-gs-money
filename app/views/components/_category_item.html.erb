@@ -1,0 +1,21 @@
+<article class="c-category-item c-card">
+  <img 
+    src=<%= image_url("category_placeholder.png") %> 
+    class="c-category-item__img" 
+    alt="" 
+  />
+  <div class="c-category-item__content">
+    <div class="c-category-item__info">
+      <h3 class="t-text t-text--bold c-category-item__title">
+        <%= category.name %>
+      </h3>
+      <h3 class="t-heading t-heading--sm c-category-item__total">
+        <%= number_to_currency(category.total, :unit => "$ ") %>
+      </h3>
+    </div>
+
+    <p class="t-text t-text--sm c-category-item__date">
+      <%= category.created_at.strftime("%m/%d/%Y") %>
+    </p>
+  </div>
+</article>

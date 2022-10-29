@@ -1,0 +1,7 @@
+.c-link {
+  transition: all 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

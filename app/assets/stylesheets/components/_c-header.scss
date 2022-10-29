@@ -2,6 +2,10 @@
   background-color: var(--color-primary);
   padding: 3.2rem 0 13.2rem;
 
+  @include respond-to('min', 'screen-lg') {
+    padding-bottom: 16.4rem;
+  }
+
   &__content,
   &__start,
   &__center,

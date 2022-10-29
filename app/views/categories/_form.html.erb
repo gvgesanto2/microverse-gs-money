@@ -1,0 +1,43 @@
+<%= form_with(model: category, class: "c-form c-card") do |form| %>
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="c-form__upload">
+    <img class="c-form__img" src=<%= image_url("category_placeholder.png") %> alt="" />
+    <%= form.label :upload_image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="c-form__input-group">
+    <div>
+      <%= form.text_field :name, 
+        class: "c-input",
+        placeholder: "Enter the category name...", 
+        required: true, 
+        'aria-label': 'Category name' 
+      %>
+    </div>
+
+    <div>
+      <%= form.text_area :description,
+        class: "c-input c-input--textarea",
+        placeholder: "Enter the category description...", 
+        required: true, 
+        'aria-label': 'Description' 
+       %>
+    </div>
+  </div>
+
+  <div class="c-form__action">
+    <%= form.submit "Create Category", class: "c-btn c-btn--full c-btn--lg" %>
+  </div>
+<% end %>
