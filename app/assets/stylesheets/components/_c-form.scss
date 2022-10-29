@@ -1,24 +1,44 @@
 .c-form {
-  padding: 2.4rem;
-
   &__upload {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    margin-bottom: 2.4rem;
 
-    & > label {
-      position: absolute;
-      bottom: 0;
+    &-box {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 3.7rem;
 
-      &:hover {
-        text-decoration: underline;
+      @include respond-to('min', 'screen-lg') {
+        height: 4.1rem;
       }
-    }
 
-    & > input {
-      opacity: 0;
-      cursor: pointer;
+      > label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 500;
+        color: var(--color-white);
+        background-color: var(--color-green-400);
+        border-radius: var(--border-radius);
+        padding: 0.8rem 1.9rem;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        @include respond-to('min', 'screen-lg') {
+          padding: 0.8rem 1.5rem;
+        }
+  
+        &:hover {
+          filter: brightness(1.05);
+        }
+      }
+  
+      > input {
+        width: 18.5rem;
+      }
     }
   }
 

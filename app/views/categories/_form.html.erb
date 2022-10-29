@@ -1,43 +1,25 @@
-<%= form_with(model: category, class: "c-form c-card") do |form| %>
-  <% if category.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with url: categories_path, class: "c-form" do |form| %>
   <div class="c-form__upload">
     <img class="c-form__img" src=<%= image_url("category_placeholder.png") %> alt="" />
-    <%= form.label :upload_image %>
-    <%= form.file_field :image %>
+
+    <div class="c-form__upload-box">
+      <%= form.label :upload, for: "user_image" %>
+      <%= form.file_field :image %>
+    </div>
   </div>
 
   <div class="c-form__input-group">
-    <div>
+    <div class="c-form__field">
       <%= form.text_field :name, 
         class: "c-input",
-        placeholder: "Enter the category name...", 
+        placeholder: "Category name...", 
         required: true, 
-        'aria-label': 'Category name' 
+        'aria-label': 'category name' 
       %>
-    </div>
-
-    <div>
-      <%= form.text_area :description,
-        class: "c-input c-input--textarea",
-        placeholder: "Enter the category description...", 
-        required: true, 
-        'aria-label': 'Description' 
-       %>
     </div>
   </div>
 
   <div class="c-form__action">
-    <%= form.submit "Create Category", class: "c-btn c-btn--full c-btn--lg" %>
+    <%= form.submit "Create category", class: "c-full-btn" %>
   </div>
 <% end %>

@@ -26,5 +26,9 @@
         <%= yield %>
       </main>
     </div>
+
+    <%= render "components/categories_popup",
+      popup_id: "create-category-popup"
+    %>
   </body>
 </html>

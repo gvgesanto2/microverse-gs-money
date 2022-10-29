@@ -2,8 +2,7 @@
   <div class="c-header__content">
     <div class="c-header__start">
       <%= button_to nil, 
-        class: "c-icon-btn c-header__hamburger-btn" do 
-      %>
+        class: "c-icon-btn c-header__hamburger-btn" do %>
         <svg class="c-icon--lg">
           <use xlink:href=<%= image_url("icons/sprite.svg#menu")%>></use>
         </svg>
@@ -33,10 +32,14 @@
       </nav>
     </div>
     <div class="c-header__end">
-      <%= button_to "New transaction", 
-        nil, 
-        class: "c-btn" 
-      %>
+      <%= button_to "New transaction", nil, 
+        class: "c-btn",
+        remote: true,
+        data: {
+          controller: "popup",
+          action: "popup#openPopup",
+          popup_id_param: "create-category-popup"
+        } %>
     </div>
   </div>
 </header>
