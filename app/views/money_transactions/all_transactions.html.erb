@@ -1,8 +1,7 @@
-
 <section class="p-transactions">
   <%= render "components/summary" %>
 
-  <%= render "components/categories_filter" %>
+  <%= render "components/categories_filter", categories: @categories %>
 
   <section class="c-transactions">
     <header class="c-transactions__header">
@@ -16,7 +15,12 @@
       <% end %>
     </header>
     
-
-    <%= render "components/transactions_list", transactions: @transactions %>
+    <% if @transactions.empty? %>
+      <p>
+        You don't have any transactions yet. Create one!
+      </p>
+    <% else %>
+      <%= render "components/transactions_list", transactions: @transactions %>
+    <% end %>
   </section>
 </section>

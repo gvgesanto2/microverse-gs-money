@@ -50,7 +50,7 @@
     }
   }
 
-  &__date {
+  &__text {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.8rem;
@@ -62,11 +62,11 @@
     }
   }
 
-  &--total {
+  &--primary {
     background-color: var(--color-green-300);
     .c-summary-item__title,
     .c-summary-item__value,
-    .c-summary-item__date {
+    .c-summary-item__text {
       color: var(--color-white);
     }
   }

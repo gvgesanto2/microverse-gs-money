@@ -3,22 +3,22 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one_attached :photo
+  has_one_attached :image
   
   validate :image_type
 
   private
 
   def image_type
-    return unless photo.attached?
+    return unless image.attached?
 
     image_types = %w[
       image/png image/jpeg image/jpg image/webp
     ]
 
-    return if photo.content_type.in?(image_types)
+    return if image.content_type.in?(image_types)
 
-    errors.add(:photo,
+    errors.add(:image,
                'Error: Please upload an image with one of the following extensions: jpeg, jpg, png, or webp!')
   end
 end

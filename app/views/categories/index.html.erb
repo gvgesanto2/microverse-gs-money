@@ -1,6 +1,10 @@
 <section class="p-categories">
 
-  <%= render "components/categories_summary" %>
+  <%= render "components/categories_summary",
+    total_balance: @total,
+    negatives_balance: @negatives,
+    positives_balance: @positives 
+  %>
 
   <section class="c-categories">
     <header class="c-categories__header">
@@ -13,11 +17,18 @@
         </svg>
       <% end %>
     </header>
-    <div class="c-categories__grid">
-      <% @categories.each do |category| %>
-        <%= render "components/category_item", category: category %>
-      <% end %>
-    </div>
+
+    <% if @categories.empty? %>
+      <p>
+        You don't have any category yet. Create one!
+      </p>
+    <% else %>
+      <div class="c-categories__grid">
+        <% @categories.each do |category| %>
+          <%= render "components/category_item", category: category %>
+        <% end %>
+      </div>
+    <% end %>
   </section>
 </section>
 

@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories or /categories.json
   def index
-    # @categories = Category.where(user: current_user)
-    @categories = Category.all    
+    @user = current_user
+    @categories = @categories = Category.where(user: @user)
+    set_totals
   end
 
   # GET /categories/1 or /categories/1.json
@@ -59,6 +61,18 @@ class CategoriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_category
     @category = category.find(params[:id])
+  end
+
+  def set_totals
+    @positives = 0
+    @negatives = 0
+
+    @categories.each do |category|
+      @positives += category.total if category.total > 0
+      @negatives += category.total if category.total < 0
+    end
+
+    @total = @positives - @negatives
   end
 
   # Only allow a list of trusted parameters through.

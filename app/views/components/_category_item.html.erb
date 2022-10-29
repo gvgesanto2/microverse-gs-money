@@ -1,9 +1,11 @@
 <article class="c-category-item c-card">
-  <img 
-    src=<%= image_url("category_placeholder.png") %> 
-    class="c-category-item__img" 
-    alt="" 
-  />
+  <%= render "components/attached_img",
+    image: category.image,
+    image_class: "c-category-item__img",
+    image_alt: "category icon",
+    placeholder: "category_placeholder.png"
+  %>
+  
   <div class="c-category-item__content">
     <div class="c-category-item__info">
       <h3 class="t-text t-text--bold c-category-item__title">

@@ -4,58 +4,32 @@
       Filter by category
     </h2>
     <span class="t-text t-text--bold">
-      <%= pluralize(2, "item") %>
+      <%= pluralize(categories.length + 1, "item") %>
     </span>
   </header>
   <div class="c-categories-filter__content c-card">
     <div class="u-scroll-viewport">
       <ul class="c-categories-filter__list u-scroll-content">
         <li>
-          <article class="c-simple-card c-simple-card--active">
-            <div class="c-simple-card__custom-img">
-              all
-            </div>
-            <h3 class="c-simple-card__title">
-              All categories
-            </h3>
-          </article>
+          <%= render "components/filter_item",
+            title: "All categories",
+            custom_img: { text: "all" },
+            image: nil
+          %>
         </li>
-        <li>
-          <article class="c-simple-card">
-            <img 
-              src=<%= image_url("category_placeholder.png") %> 
-              class="c-simple-card__img"
-              alt="category icon" 
-            />
-            <h3 class="c-simple-card__title">
-              Some
-            </h3>
-          </article>
-        </li>
-        <li>
-          <article class="c-simple-card">
-            <img 
-              src=<%= image_url("category_placeholder.png") %> 
-              class="c-simple-card__img"
-              alt="category icon" 
-            />
-            <h3 class="c-simple-card__title">
-              Some
-            </h3>
-          </article>
-        </li>
-        <li>
-          <article class="c-simple-card">
-            <img 
-              src=<%= image_url("category_placeholder.png") %> 
-              class="c-simple-card__img"
-              alt="category icon" 
-            />
-            <h3 class="c-simple-card__title">
-              Some
-            </h3>
-          </article>
-        </li>
+        <% categories.each do |category| %>
+          <li>
+            <%= render "components/filter_item",
+              title: category.name,
+              custom_img: nil,
+              image: {
+                file: category.image,
+                alt: "category icon",
+                placeholder: "category_placeholder.png"
+              }
+            %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

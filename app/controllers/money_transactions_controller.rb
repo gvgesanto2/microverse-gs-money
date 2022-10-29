@@ -1,19 +1,27 @@
 class MoneyTransactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_transaction, only: %i[show edit update destroy]
+  before_action :init_dates, only: %i[all_transactions]
 
   def all_transactions
-    # @transactions = MoneyTransaction.where(user: current_user)
-    @transactions = MoneyTransaction.all.order('created_at DESC')
+    @user = current_user
+    @transactions = MoneyTransaction.where(user: @user).order('created_at DESC')
+    @categories = Category.where(user: @user)
     set_totals
-    @first_transaction_date = @transactions.last.created_at
-    @last_transaction_date = @transactions.first.created_at
 
-    @last_income_date = @transactions.where(its_type: "income").order('created_at DESC').first.created_at
-    @last_expense_date = @transactions.where(its_type: "expense").order('created_at DESC').first.created_at
+    unless @transactions.empty? 
+      incomes = @transactions.where(its_type: "income").order('created_at DESC')
+      expenses = @transactions.where(its_type: "expense").order('created_at DESC')
+      @first_transaction_date = @transactions.last.created_at
+      @last_transaction_date = @transactions.first.created_at
+
+      @last_income_date = incomes.first.created_at unless incomes.empty?
+      @last_expense_date = expenses.first.created_at unless expenses.empty?
+    end
   end
 
   def index
-    @transactions = MoneyTransaction.all
+    @transactions = MoneyTransaction.where(user: current_user)
   end
 
   # GET /transactions/1 or /transactions/1.json
@@ -88,5 +96,13 @@ class MoneyTransactionsController < ApplicationController
     end
 
     @total = @incomes - @expenses
+  end
+
+
+  def init_dates
+    @first_transaction_date = nil
+    @last_transaction_date = nil
+    @last_income_date = nil
+    @last_expense_date = nil
   end
 end

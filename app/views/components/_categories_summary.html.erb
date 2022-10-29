@@ -1,56 +1,28 @@
 <div class="c-summary u-scroll-viewport">
   <ul class="c-summary__list u-scroll-content">
-    <li class="c-summary-item">
-      <header class="c-summary-item__header">
-        <h3 class="c-summary-item__title">
-          Positives
-        </h3>
-        <svg class="c-summary-item__icon">
-          <use xlink:href=<%= image_url("icons/sprite.svg#income")%>></use>
-        </svg>
-      </header>
+    <%= render "components/summary_item", 
+      title: "Positives",
+      icon_path: "icons/sprite.svg#income",
+      value: positives_balance,
+      text: "Sum of all categories with a positive balance",
+      primary: false
+    %>
 
-      <p class="c-summary-item__value">
-        <%= number_to_currency(1000, :unit => "$ ") %>
-      </p>
-      <p class="c-summary-item__date">
-        Sum of all categories with a positive balance
-      </p>
-    </li>
-    <li class="c-summary-item">
-      <header class="c-summary-item__header">
-        <h3 class="c-summary-item__title">
-          Negatives
-        </h3>
-        <svg class="c-summary-item__icon">
-          <use xlink:href=<%= image_url("icons/sprite.svg#expense")%>></use>
-        </svg>
-      </header>
+    <%= render "components/summary_item", 
+      title: "Negatives",
+      icon_path: "icons/sprite.svg#expense",
+      value: negatives_balance,
+      text: "Sum of all categories with a nagative balance",
+      primary: false
+    %>
 
-      <p class="c-summary-item__value">
-        <%= number_to_currency(500, :unit => "$ ") %>
-      </p>
-      <p class="c-summary-item__date">
-        Sum of all categories with a nagative balance
-      </p>
-    </li>
-    <li class="c-summary-item c-summary-item--total">
-      <header class="c-summary-item__header">
-        <h3 class="c-summary-item__title">
-          Total
-        </h3>
-        <svg class="c-summary-item__icon">
-          <use xlink:href=<%= image_url("icons/sprite.svg#total")%>></use>
-        </svg>
-      </header>
-
-      <p class="c-summary-item__value">
-        <%= number_to_currency(500, :unit => "$ ") %>
-      </p>
-      <p class="c-summary-item__date">
-        Sum of all categories 
-      </p>
-    </li>
+    <%= render "components/summary_item", 
+      title: "Total",
+      icon_path: "icons/sprite.svg#total",
+      value: total_balance,
+      text: "Sum of all categories balances",
+      primary: true
+    %>
   </ul>
 </div>
 

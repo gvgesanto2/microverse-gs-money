@@ -1,9 +1,9 @@
-<%= form_with url: categories_path, class: "c-form" do |form| %>
+<%= form_with url: categories_path, method: :post, class: "c-form", scope: :category do |form| %>
   <div class="c-form__upload">
     <img class="c-form__img" src=<%= image_url("category_placeholder.png") %> alt="" />
 
     <div class="c-form__upload-box">
-      <%= form.label :upload, for: "user_image" %>
+      <%= form.label :upload, for: "category_image" %>
       <%= form.file_field :image %>
     </div>
   </div>

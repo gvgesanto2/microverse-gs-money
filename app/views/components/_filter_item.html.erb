@@ -1,0 +1,17 @@
+<article class="c-simple-card">
+  <% if custom_img %>
+    <div class="c-simple-card__custom-img">
+      <%= custom_img[:text] %>
+    </div>
+  <% else %>
+    <%= render "components/attached_img",
+      image: image[:file],
+      image_class: "c-simple-card__img",
+      image_alt: image[:alt],
+      placeholder: image[:placeholder]
+    %>
+  <% end %>
+  <h3 class="c-simple-card__title">
+    <%= title %>
+  </h3>
+</article>

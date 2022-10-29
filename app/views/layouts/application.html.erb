@@ -21,9 +21,9 @@
     <div id="main-container" class="l-container">
       <%= render 'components/header' %>
       <main class="l-main">
+        <%= yield %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <%= yield %>
       </main>
     </div>
 
