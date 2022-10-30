@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import { addClassToElem, removeClassFromElem } from "../utils/html.utils";
 
 const addClassToElem = (htmlElem, classToAdd) => {
   htmlElem.classList.add(classToAdd);
