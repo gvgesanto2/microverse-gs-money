@@ -10,7 +10,7 @@
   </p>
   <div class="c-transaction-li__info">
     <span class="t-text">
-      Sales
+      <%= transaction.categories.first.name %>
     </span>
     <span class="t-text">
       <%= transaction.created_at.strftime("%m/%d/%Y") %>

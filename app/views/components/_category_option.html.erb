@@ -1,0 +1,22 @@
+<div class="c-category-option">
+  <input 
+    name=<%= "selected_categories[#{option_index}][id]" %> 
+    type="checkbox" 
+    class="c-category-option__checkbox"
+    value="<%=category.id %>" 
+  />
+  <%= render "components/attached_img", 
+    image: category.image,
+    image_class: "c-category-option__img",
+    image_alt: "ingredient photo",
+    placeholder: "category_placeholder.png"
+  %>
+  <div class="c-category-option__info">
+    <h3 class="c-category-option__title">
+      <%= category.name %>
+    </h3>
+    <p class="c-category-option__price">
+      Balance: <%= number_to_currency(category.total, :unit => "$") %>
+    </p>
+  </div>
+</div>

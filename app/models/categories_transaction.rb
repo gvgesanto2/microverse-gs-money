@@ -9,22 +9,32 @@ class CategoriesTransaction < ApplicationRecord
   private
 
   def increment_category_totals
-    category.total += money_transaction.price
+    money_transaction = MoneyTransaction.find(self.money_transaction_id)
+    category = Category.find(self.category_id)
 
     if money_transaction.its_type == "income"
       category.incomes += money_transaction.price 
+      category.total += money_transaction.price
     else
       category.expenses += money_transaction.price
+      category.total -= money_transaction.price
     end
+
+    category.save
   end
 
   def decrement_category_totals
-    category.total -= money_transaction.price
+    money_transaction = MoneyTransaction.find(self.money_transaction_id)
+    category = Category.find(self.category_id)
 
     if money_transaction.its_type == "income"
       category.incomes -= money_transaction.price 
+      category.total -= money_transaction.price
     else
       category.expenses -= money_transaction.price
+      category.total += money_transaction.price
     end
+
+    category.save
   end
 end

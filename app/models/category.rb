@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   belongs_to :user
   has_many :categories_transactions, dependent: :destroy
-  has_many :transactions, through: :categories_transactions
+  has_many :money_transactions, through: :categories_transactions
   has_one_attached :image
   
   validate :image_type

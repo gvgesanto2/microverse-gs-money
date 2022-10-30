@@ -1,4 +1,10 @@
 .p-categories {
+  padding-bottom: 3.2rem;
+
+  @include respond-to('min', 'screen-lg') {
+    padding-bottom: 6.4rem;
+  }
+  
   & > *:not(:last-child) {
     margin-bottom: 3.2rem;
 

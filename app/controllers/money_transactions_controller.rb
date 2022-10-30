@@ -1,27 +1,28 @@
 class MoneyTransactionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_transaction, only: %i[show edit update destroy]
-  before_action :init_dates, only: %i[all_transactions]
+  before_action :init_dates, only: %i[all_transactions index]
 
   def all_transactions
     @user = current_user
-    @transactions = MoneyTransaction.where(user: @user).order('created_at DESC')
+    @transactions = MoneyTransaction.where(user: @user).order('created_at DESC').includes(:categories)
     @categories = Category.where(user: @user)
     set_totals
-
-    unless @transactions.empty? 
-      incomes = @transactions.where(its_type: "income").order('created_at DESC')
-      expenses = @transactions.where(its_type: "expense").order('created_at DESC')
-      @first_transaction_date = @transactions.last.created_at
-      @last_transaction_date = @transactions.first.created_at
-
-      @last_income_date = incomes.first.created_at unless incomes.empty?
-      @last_expense_date = expenses.first.created_at unless expenses.empty?
-    end
+    set_dates
   end
 
   def index
-    @transactions = MoneyTransaction.where(user: current_user)
+    @user = current_user
+    @categories = Category.where(user: @user)
+    @category = Category.find(params[:category_id])
+
+    @transactions = @category.money_transactions
+
+    @total = @category.total
+    @incomes = @category.incomes
+    @expenses = @category.expenses
+
+    set_dates
   end
 
   # GET /transactions/1 or /transactions/1.json
@@ -31,8 +32,9 @@ class MoneyTransactionsController < ApplicationController
 
   # GET /transactions/new
   def new
-    @title = 'Create a transaction'
+    @user = current_user
     @transaction = MoneyTransaction.new
+    @categories = Category.where(user: @user)
   end
 
   # GET /transactions/1/edit
@@ -44,12 +46,26 @@ class MoneyTransactionsController < ApplicationController
   def create
     @transaction = MoneyTransaction.new(transaction_params)
     @transaction.user = current_user
+    selected_categories = params[:selected_categories]    
 
     respond_to do |format|
-      if @transaction.save
-        format.html { redirect_to transaction_url(@transaction), notice: 'transaction was successfully created.' }
+      if selected_categories
+        if @transaction.save
+          selected_categories.values.each do |selected_category|
+            category = Category.find(selected_category[:id])
+
+            CategoriesTransaction.create(
+              money_transaction_id: @transaction.id,
+              category_id: category.id
+            )
+          end
+
+          format.html { redirect_to money_transactions_path, notice: 'transaction was successfully created.' }
+        else
+          format.html { redirect_to new_money_transaction_path, alert: 'Error: transaction could not be created.' }
+        end
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_money_transaction_path, alert: 'Error: transaction could not be created. Please, select at least one category!' }
       end
     end
   end
@@ -83,7 +99,7 @@ class MoneyTransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:money_transaction).permit(:name, :price, :type)
+    params.require(:money_transaction).permit(:name, :price, :its_type)
   end
 
   def set_totals
@@ -97,12 +113,23 @@ class MoneyTransactionsController < ApplicationController
 
     @total = @incomes - @expenses
   end
-
-
+  
   def init_dates
     @first_transaction_date = nil
     @last_transaction_date = nil
     @last_income_date = nil
     @last_expense_date = nil
+  end
+
+  def set_dates
+    unless @transactions.empty? 
+      incomes = @transactions.where(its_type: "income").order('created_at DESC')
+      expenses = @transactions.where(its_type: "expense").order('created_at DESC')
+      @first_transaction_date = @transactions.last.created_at
+      @last_transaction_date = @transactions.first.created_at
+
+      @last_income_date = incomes.first.created_at unless incomes.empty?
+      @last_expense_date = expenses.first.created_at unless expenses.empty?
+    end
   end
 end

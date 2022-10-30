@@ -1,0 +1,32 @@
+<div id="main-container" class="l-container">
+  <%= render 'components/header',
+    js_button: nil,
+    link: {
+      name: "New transaction",
+      route: new_money_transaction_path,
+    },
+    active_nav: ""
+  %>
+  <main class="l-main">
+    <section class="l-form-section">
+      <div class="l-form-section__content c-card">
+        <h2 class="t-heading t-heading--md t-heading--bold">Create transaction</h2>
+
+
+        <% if @categories.empty? %>
+          <p>
+            You need to create at least one category first!
+          </p>
+        <% else %>
+          <%= render "form", transaction: @transaction, categories: @categories %>
+        <% end %>
+      </div>
+    </section>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </main>
+</div>
+
+
+
+

@@ -3,24 +3,24 @@
     <%= render "components/summary_item", 
       title: "Positives",
       icon_path: "icons/sprite.svg#income",
-      value: positives_balance,
-      text: "Sum of all categories with a positive balance",
+      value: positives,
+      text: "Categories with a positive balance",
       primary: false
     %>
 
     <%= render "components/summary_item", 
       title: "Negatives",
       icon_path: "icons/sprite.svg#expense",
-      value: negatives_balance,
-      text: "Sum of all categories with a nagative balance",
+      value: negatives,
+      text: "Categories with a nagative balance",
       primary: false
     %>
 
     <%= render "components/summary_item", 
       title: "Total",
       icon_path: "icons/sprite.svg#total",
-      value: total_balance,
-      text: "Sum of all categories balances",
+      value: total,
+      text: "Number of categories",
       primary: true
     %>
   </ul>

@@ -49,8 +49,13 @@
     padding: 0 0.8rem;
     transition: all 0.2s;
 
+    &--active,
     &:hover {
       color: var(--color-white);
+    }
+
+    &--active {
+      font-weight: 500;
     }
   }
   

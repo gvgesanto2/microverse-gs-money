@@ -16,7 +16,9 @@ const setupScrolls = () => {
 
 function init() {
   setupScrolls();
-}
+} 
+
+document.addEventListener("DOMSubtreeModified", init);
 
 if (document.readyState !== "loading") {
   init();

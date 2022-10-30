@@ -20,26 +20,35 @@
       <nav class="c-header__nav">
         <ul class="c-horizontal-list">
           <li>
-            <%= link_to "home", root_path, class: "c-header__nav-link" %>
+            <%= link_to "home", root_path, 
+              class: "c-header__nav-link #{current_page?(root_url) ? "c-header__nav-link--active" : ""}" 
+            %>
           </li>
            <li>
-            <%= link_to "categories", categories_path, class: "c-header__nav-link" %>
+            <%= link_to "categories", categories_path, 
+              class: "c-header__nav-link #{active_nav == "categories" ? "c-header__nav-link--active" : ""}" 
+            %>
           </li>
            <li>
-            <%= link_to "transactions", money_transactions_path, class: "c-header__nav-link" %>
+            <%= link_to "transactions", money_transactions_path, 
+              class: "c-header__nav-link #{active_nav == "transactions" ? "c-header__nav-link--active" : ""}" 
+            %>
           </li>
         </ul>
       </nav>
     </div>
     <div class="c-header__end">
-      <%= button_to "New transaction", nil, 
-        class: "c-btn",
-        remote: true,
-        data: {
-          controller: "popup",
-          action: "popup#openPopup",
-          popup_id_param: "create-category-popup"
-        } %>
+      <% if js_button %>
+        <%= button_to js_button[:name], nil, 
+          class: "c-btn",
+          remote: true,
+          data: js_button[:data] 
+        %>
+      <% else %>
+        <%= link_to link[:name], link[:route],
+          class: "c-btn"
+        %>
+      <% end %>
     </div>
   </div>
 </header>

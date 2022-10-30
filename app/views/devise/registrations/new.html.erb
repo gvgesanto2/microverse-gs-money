@@ -1,66 +1,82 @@
-<section class="l-form-section">
-  <div class="l-form-section__content c-card">
-    <h2 class="t-heading t-heading--md t-heading--bold">Create new account</h2>
+<div id="main-container" class="l-container">
+  <%= render 'components/header',
+    js_button: nil,
+    link: {
+      name: "Sign in",
+      route: new_user_session_path,
+    },
+    active_nav: ""
+  %>
+  <main class="l-main">
+    <section class="l-form-section">
+      <div class="l-form-section__content c-card">
+        <h2 class="t-heading t-heading--md t-heading--bold">Create new account</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "c-form") do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "c-form") do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="c-form__upload">
-        <img class="c-form__img" src=<%= image_url("user_placeholder.jpg") %> alt="" />
+          <div class="c-form__upload">
+            <img class="c-form__img" src=<%= image_url("user_placeholder.jpg") %> alt="" />
 
-        <div class="c-form__upload-box">
-          <%= f.label :upload, for: "user_image" %>
-          <%= f.file_field :image %>
-        </div>
-        
+            <div class="c-form__upload-box">
+              <%= f.label :upload, for: "user_image" %>
+              <%= f.file_field :image %>
+            </div>
+            
+          </div>
+
+          <div class="c-form__input-group">
+            <div class="c-form__field">
+              <%= f.text_field :name, 
+                class: "c-input",
+                placeholder: "Enter your name...", 
+                required: true, 
+                'aria-label': 'user name' 
+              %>
+            </div>
+
+            <div class="c-form__field">
+              <%= f.email_field :email, 
+                class: "c-input",
+                placeholder: "Enter your email...", 
+                required: true, 
+                'aria-label': 'user email' %>
+            </div>
+
+            <div class="c-form__field">
+              <%= f.password_field :password, 
+                class: "c-input",
+                placeholder: "Enter password...", 
+                required: true, 
+                'aria-label': 'password' %>
+            </div>
+
+            <div class="c-form__field">
+              <%= f.password_field :password_confirmation, 
+                class: "c-input",
+                placeholder: "Confirm password...", 
+                required: true, 
+                'aria-label': 'password confirmation' %>
+            </div>
+          </div>
+
+          
+
+          <div class="c-form__action">
+            <%= f.submit "Sign up", class: "c-full-btn" %>
+            <p class="t-text t-text--sm">
+              Already have an account?
+              <%= link_to "Sing in!", new_user_session_path, class: "c-link" %>
+            </p>
+          </div>
+        <% end %>
       </div>
+    </section>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </main>
+</div>
 
-      <div class="c-form__input-group">
-        <div class="c-form__field">
-          <%= f.text_field :name, 
-            class: "c-input",
-            placeholder: "Enter your name...", 
-            required: true, 
-            'aria-label': 'user name' 
-          %>
-        </div>
 
-        <div class="c-form__field">
-          <%= f.email_field :email, 
-            class: "c-input",
-            placeholder: "Enter your email...", 
-            required: true, 
-            'aria-label': 'user email' %>
-        </div>
-
-        <div class="c-form__field">
-          <%= f.password_field :password, 
-            class: "c-input",
-            placeholder: "Enter password...", 
-            required: true, 
-            'aria-label': 'password' %>
-        </div>
-
-        <div class="c-form__field">
-          <%= f.password_field :password_confirmation, 
-            class: "c-input",
-            placeholder: "Confirm password...", 
-            required: true, 
-            'aria-label': 'password confirmation' %>
-        </div>
-      </div>
-
-      
-
-      <div class="c-form__action">
-        <%= f.submit "Sign up", class: "c-full-btn" %>
-        <p class="t-text t-text--sm">
-          Already have an account?
-          <%= link_to "Sing in!", new_user_session_path, class: "c-link" %>
-        </p>
-      </div>
-    <% end %>
-  </div>
-</section>
 
 

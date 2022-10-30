@@ -13,20 +13,24 @@
         <li>
           <%= render "components/filter_item",
             title: "All categories",
+            route: money_transactions_path,
             custom_img: { text: "all" },
-            image: nil
+            image: nil,
+            active: selectedCategory ? false : true
           %>
         </li>
         <% categories.each do |category| %>
           <li>
             <%= render "components/filter_item",
               title: category.name,
+              route: category_money_transactions_path(category),
               custom_img: nil,
               image: {
                 file: category.image,
                 alt: "category icon",
                 placeholder: "category_placeholder.png"
-              }
+              },
+              active: selectedCategory ? selectedCategory.id == category.id : false
             %>
           </li>
         <% end %>

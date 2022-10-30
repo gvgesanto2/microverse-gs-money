@@ -5,8 +5,16 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @user = current_user
-    @categories = @categories = Category.where(user: @user)
-    set_totals
+    @categories = Category.where(user: @user)
+    @positives = []
+    @negatives = []
+    @categories.each do |category|
+      if category.total >= 0
+        @positives.push(category)
+      else
+        @negatives.push(category)
+      end
+    end
   end
 
   # GET /categories/1 or /categories/1.json
@@ -31,7 +39,10 @@ class CategoriesController < ApplicationController
       if @category.save
         format.html { redirect_to category_url(@category), notice: 'category was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        error_msgs = ""
+        @category.errors.each { |error| error_msgs += error.type }
+    
+        format.html { redirect_to categories_path, alert: "Error: category could not be created. #{error_msgs}" }
       end
     end
   end
@@ -61,18 +72,6 @@ class CategoriesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_category
     @category = category.find(params[:id])
-  end
-
-  def set_totals
-    @positives = 0
-    @negatives = 0
-
-    @categories.each do |category|
-      @positives += category.total if category.total > 0
-      @negatives += category.total if category.total < 0
-    end
-
-    @total = @positives - @negatives
   end
 
   # Only allow a list of trusted parameters through.

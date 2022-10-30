@@ -55,11 +55,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_29_114910) do
 
   create_table "categories_transactions", force: :cascade do |t|
     t.bigint "category_id", null: false
-    t.bigint "transaction_id", null: false
+    t.bigint "money_transaction_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_transactions_on_category_id"
-    t.index ["transaction_id"], name: "index_categories_transactions_on_transaction_id"
+    t.index ["money_transaction_id"], name: "index_categories_transactions_on_money_transaction_id"
   end
 
   create_table "money_transactions", force: :cascade do |t|
@@ -89,6 +89,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_29_114910) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "users"
   add_foreign_key "categories_transactions", "categories"
-  add_foreign_key "categories_transactions", "money_transactions", column: "transaction_id"
+  add_foreign_key "categories_transactions", "money_transactions"
   add_foreign_key "money_transactions", "users"
 end

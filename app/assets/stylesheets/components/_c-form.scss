@@ -42,6 +42,15 @@
     }
   }
 
+  &__field-flex {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
+
   &__img {
     box-sizing: content-box;
 

@@ -18,14 +18,7 @@
   </head>
 
   <body>
-    <div id="main-container" class="l-container">
-      <%= render 'components/header' %>
-      <main class="l-main">
-        <%= yield %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </main>
-    </div>
+    <%= yield %>
 
     <%= render "components/categories_popup",
       popup_id: "create-category-popup"

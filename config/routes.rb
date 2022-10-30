@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/money_transactions', to: 'money_transactions#all_transactions'
 
-  resources :money_transactions, only: [:create, :destroy] 
+  resources :money_transactions, only: [:new, :create, :destroy] 
 
-  root "money_transactions#all_transactions"
+  root "categories#index"
 end
