@@ -14,10 +14,10 @@
   - Docker
 
 ## Video Documentation
-Link to video: https://www.loom.com/share/205f9e805db44f08a35637c205df21f7
+Link to video https://www.loom.com/share/205f9e805db44f08a35637c205df21f7
 
 ## Live Demo
-Link to live demo: https://gs-money.herokuapp.com/
+Link to live demo: https://gs-money.herokuapp.com/ 
 
 ## Original Design Idea
 
