@@ -1,6 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 import { addClassToElem, removeClassFromElem } from "../utils/html.utils";
 
+const addClassToElem = (htmlElem, classToAdd) => {
+  htmlElem.classList.add(classToAdd);
+}
+
+const removeClassFromElem = (htmlElem, classToAdd) => {
+  if (htmlElem.classList.contains(classToAdd)) {
+    htmlElem.classList.remove(classToAdd);
+  }
+}
+
 const HAMBURGER_MENU_ACTIVE_CLASS = 'c-hamburger-menu--active';
 
 export default class extends Controller {
