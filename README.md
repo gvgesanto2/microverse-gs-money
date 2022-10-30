@@ -84,6 +84,14 @@ To use this application, run this command on the root project's directory:
 $ rails s
 ```
 
+## Test
+
+To test this application, run this command on the root project's directory: 
+
+```console
+$ rspec
+```
+
 ## Authors
 
 👤 **Gabriel Santo**
