@@ -19,6 +19,10 @@ Link to video: https://www.loom.com/share/205f9e805db44f08a35637c205df21f7
 ## Live Demo
 Link to live demo: https://gs-money.herokuapp.com/
 
+## Original Design Idea
+
+This app original design idea was made by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
