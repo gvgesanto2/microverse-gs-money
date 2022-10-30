@@ -1,0 +1,21 @@
+.c-categories-filter {
+  padding: 0 2.4rem;
+
+  &__header {
+    @include spaceBetween;
+
+    margin-bottom: 1.6rem;
+  }
+
+  &__content {
+    padding: 2rem;
+  }
+
+  &__list {
+    display: flex;
+
+    & > li:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
+}

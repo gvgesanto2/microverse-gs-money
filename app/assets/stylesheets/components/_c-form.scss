@@ -1,0 +1,77 @@
+.c-form {
+  &__upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.4rem;
+
+    &-box {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 3.7rem;
+
+      @include respond-to('min', 'screen-lg') {
+        height: 4.1rem;
+      }
+
+      > label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 500;
+        color: var(--color-white);
+        background-color: var(--color-green-400);
+        border-radius: var(--border-radius);
+        padding: 0.8rem 1.9rem;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        @include respond-to('min', 'screen-lg') {
+          padding: 0.8rem 1.5rem;
+        }
+
+        &:hover {
+          filter: brightness(1.05);
+        }
+      }
+
+      > input {
+        width: 18.5rem;
+      }
+    }
+  }
+
+  &__field-flex {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
+
+  &__img {
+    box-sizing: content-box;
+
+    @include roundElem(12rem);
+
+    border: 3px solid var(--color-green-300);
+    padding: 0.4rem;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+  }
+
+  &__input-group {
+    margin-bottom: 2.4rem;
+  }
+
+  &__action > *:not(:last-child),
+  &__input-group > *:not(:last-child) {
+    margin-bottom: 0.8rem;
+
+    @include respond-to('min', 'screen-lg') {
+      margin-bottom: 1.6rem;
+    }
+  }
+}

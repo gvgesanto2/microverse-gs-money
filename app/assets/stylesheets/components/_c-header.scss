@@ -1,0 +1,60 @@
+.c-header {
+  background-color: var(--color-primary);
+  padding: 3.2rem 0 13.2rem;
+
+  @include respond-to('min', 'screen-lg') {
+    padding-bottom: 16.4rem;
+  }
+
+  &__content,
+  &__start,
+  &__center,
+  &__end {
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    justify-content: space-between;
+    max-width: var(--main-container-max-width);
+    padding: 0 2.4rem;
+    margin: 0 auto;
+  }
+
+  &__center {
+    display: none;
+
+    @include respond-to('min', 'screen-lg') {
+      display: flex;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include respond-to('min', 'screen-md') {
+      display: flex;
+      margin-left: 0.8rem;
+    }
+  }
+
+  &__hamburger-btn {
+    color: var(--color-grey-200);
+  }
+
+  &__nav-link {
+    color: var(--color-grey-200);
+    text-transform: capitalize;
+    padding: 0 0.8rem;
+    transition: all 0.2s;
+
+    &--active,
+    &:hover {
+      color: var(--color-white);
+    }
+
+    &--active {
+      font-weight: 500;
+    }
+  }
+}

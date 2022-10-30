@@ -1,0 +1,45 @@
+<div id="main-container" class="l-container">
+  <%= render 'components/header',
+    js_button: nil,
+    link: {
+      name: "New transaction",
+      route: new_money_transaction_path,
+    },
+    active_nav: "transactions"
+  %>
+  <main class="l-main">
+    <section class="p-transactions">
+      <%= render "components/summary" %>
+
+      <%= render "components/categories_filter", 
+        categories: @categories,
+        selectedCategory: @category
+      %>
+
+      <section class="c-transactions">
+        <header class="c-transactions__header">
+          <h2 class="t-heading t-heading--md">
+            <%= pluralize(@transactions.length, "Transaction") %>
+          </h2>
+          <%= link_to root_path, class: "c-icon-btn" do %>
+            <svg class="c-icon--lg">
+              <use xlink:href=<%= image_url("icons/sprite.svg#chevron-left")%>></use>
+            </svg>
+          <% end %>
+        </header>
+        
+        <% if @transactions.empty? %>
+          <p>
+            You don't have any transactions yet. Create one!
+          </p>
+        <% else %>
+          <%= render "components/transactions_list", transactions: @transactions %>
+        <% end %>
+      </section>
+    </section>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </main>
+</div>
+
+

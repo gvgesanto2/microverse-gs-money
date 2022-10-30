@@ -1,0 +1,93 @@
+<%= form_with(model: transaction, class: "c-form") do |f| %>
+  <% if transaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+        <% transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="c-form__input-group">
+    <div class="c-form__field">
+      <%= f.text_field :name, 
+        class: "c-input",
+        placeholder: "Transaction name...", 
+        required: true, 
+        'aria-label': 'transaction name' 
+      %>
+    </div>
+
+    <div class="c-form__field">
+      <%= f.number_field :price, 
+        class: "c-input",
+        placeholder: "Transaction price...", 
+        required: true, 
+        value: "none",
+        step: 0.01,
+        min: 0.01,
+        'aria-label': 'transaction price' 
+      %>
+    </div>
+
+    <input 
+      id="money_transaction_type_input"
+      type="hidden" 
+      name="money_transaction[its_type]" 
+      value="expense"
+      autocomplete="off"
+    >
+
+    <div class="c-form__field-flex">
+      <%= link_to nil,
+        id: "expense-select-btn",
+        class: "transaction-type-select-btn c-outline-btn c-outline-btn--red c-outline-btn--active",
+        remote: true,
+        value: "expense",
+        data: {
+          controller: "transaction",
+          action: "transaction#handleTransactionTypeSelection",
+          transaction_inputid_param: "money_transaction_type_input",
+          transaction_buttonid_param: "expense-select-btn"
+        } do %>
+        <svg class="c-icon--sm">
+          <use xlink:href=<%= image_url("icons/sprite.svg#expense")%>></use>
+        </svg>
+        <span class="t-heading">Expense</span>
+      <% end %>
+
+      <%= link_to nil,
+        id: "income-select-btn",
+        class: "transaction-type-select-btn c-outline-btn c-outline-btn--green",
+        remote: true,
+        value: "income",
+        data: {
+          controller: "transaction",
+          action: "transaction#handleTransactionTypeSelection",
+          transaction_inputId_param: "money_transaction_type_input",
+          transaction_buttonId_param: "income-select-btn"
+        } do %>
+        <svg class="c-icon--sm">
+          <use xlink:href=<%= image_url("icons/sprite.svg#income")%>></use>
+        </svg>
+        <span class="t-heading">Income</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="c-form__input-group">
+    <% categories.each.with_index do |category, index| %>
+      <%= render "components/category_option",
+        category:,
+        option_index: index + 1
+      %>
+    <% end %>
+  </div>
+
+  <div class="c-form__action">
+    <%= f.submit "Create", class: "c-full-btn" %>
+  </div>
+<% end %>

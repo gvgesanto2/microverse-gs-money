@@ -1,0 +1,67 @@
+<div id="main-container" class="l-container">
+  <%= render 'components/header',
+    js_button: nil,
+    link: {
+      name: "Sign up",
+      route: new_user_registration_path,
+    },
+    active_nav: ""
+  %>
+  <main class="l-main">
+    <section class="l-form-section">
+      <div class="l-form-section__content c-card">
+        <h2 class="t-heading t-heading--md t-heading--bold">
+          Sign in
+        </h2>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "c-form") do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="c-form__input-group">
+            <div class="c-form__field">
+              <%= f.email_field :email, 
+                class: "c-input",
+                placeholder: "Enter your email...", 
+                required: true, 
+                autocomplete: "email",
+                'aria-label': 'user email' %>
+            </div>
+
+            <div class="c-form__field">
+              <%= f.password_field :password, 
+                class: "c-input",
+                placeholder: "Enter your password...", 
+                required: true, 
+                autocomplete: "current-password",
+                'aria-label': 'user password' %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="c-form__field">
+                <%= f.label :remember_me %>
+                <%= f.check_box :remember_me %>
+              </div>
+            <% end %>
+          </div>
+
+          
+
+          <div class="c-form__action">
+            <%= f.submit "Sign in", class: "c-full-btn" %>
+            <p class="t-text t-text--sm">
+              Don't have an account?
+              <%= link_to "Sing up!", new_user_registration_path, class: "c-link" %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </section>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </main>
+</div>
+
+
+
+
+
+

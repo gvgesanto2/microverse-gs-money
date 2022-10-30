@@ -1,0 +1,25 @@
+.c-logo {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    width: auto;
+    height: 3.2rem;
+    margin-right: 1.2rem;
+
+    @include respond-to('min', 'screen-lg') {
+      height: 4rem;
+      margin-right: 1.6rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--color-white);
+
+    @include respond-to('min', 'screen-lg') {
+      font-size: 2rem;
+    }
+  }
+}

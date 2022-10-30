@@ -1,0 +1,28 @@
+<div class="c-summary u-scroll-viewport">
+  <ul class="c-summary__list u-scroll-content">
+    <%= render "components/summary_item", 
+      title: "Positives",
+      icon_path: "icons/sprite.svg#income",
+      value: positives,
+      text: "Categories with a positive balance",
+      primary: false
+    %>
+
+    <%= render "components/summary_item", 
+      title: "Negatives",
+      icon_path: "icons/sprite.svg#expense",
+      value: negatives,
+      text: "Categories with a nagative balance",
+      primary: false
+    %>
+
+    <%= render "components/summary_item", 
+      title: "Total",
+      icon_path: "icons/sprite.svg#total",
+      value: total,
+      text: "Number of categories",
+      primary: true
+    %>
+  </ul>
+</div>
+

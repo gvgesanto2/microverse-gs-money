@@ -1,0 +1,16 @@
+.p-new-category {
+  padding-top: 3.2rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 3.2rem;
+    margin-bottom: 3.2rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+}

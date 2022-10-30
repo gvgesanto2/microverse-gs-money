@@ -1,0 +1,58 @@
+.c-simple-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 12.2rem;
+  height: 14.3rem;
+  text-align: center;
+  background-color: #f7f7f9;
+  border: 2px solid transparent;
+  border-radius: 0.8rem;
+  padding: 1.2rem 1.2rem 2rem 1.2rem;
+  transition: all 0.2s;
+
+  &--active,
+  &:hover {
+    // filter: brightness(0.97);
+    border-color: var(--color-green-300);
+  }
+
+  &__img,
+  &__custom-img {
+    @include roundElem(5.5rem);
+
+    margin-bottom: 1.2rem;
+  }
+
+  &__custom-img {
+    @include centerWithFlex;
+
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--color-primary-300);
+    color: var(--color-text-title);
+    -webkit-font-smoothing: antialiased;
+    background-color: #e1e1e6;
+  }
+
+  &__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem;
+    text-transform: capitalize;
+    color: var(--color-text-title);
+
+    @include respond-to('min', 'screen-lg') {
+      font-size: 1.5rem;
+    }
+  }
+}
