@@ -1,0 +1,76 @@
+<nav id="hamburger-menu" class="c-hamburger-menu">
+  <div class="c-hamburger-menu__start">
+    <%= button_to nil, 
+      class: "c-icon-btn c-hamburger-menu__close-btn", 
+      remote: true,
+      data: {
+        controller: "hamburger",
+        action: "hamburger#close",
+        hamburger_id_param: "hamburger-menu"
+      } do %>
+      <svg class="c-icon--lg">
+        <use xlink:href=<%= image_url("icons/sprite.svg#x")%>></use>
+      </svg>
+    <% end %>
+  </div>
+  <div class="c-hamburger-menu__center">
+    <% if current_user %>
+      <%= render "components/attached_img",
+        image: current_user.image,
+        image_class: "c-hamburger-menu__img",
+        image_alt: "user photo",
+        placeholder: "user_placeholder.jpg"
+      %>
+      <h3 class="c-hamburger-menu__user-name">
+        <%= current_user.name %>
+      </h3>
+      <%= button_to "Sing out", destroy_user_session_path, method: :delete, class: "c-btn" %>
+    <% else %>
+      <img 
+        class=<%= "c-hamburger-menu__img" %> 
+        src=<%= image_url("user_placeholder.jpg") %> 
+        alt=<%= "user photo" %> 
+      />
+      <h3 class="c-hamburger-menu__user-name">
+        Unknown 
+      </h3>
+      <%= link_to "Sing in", new_user_session_path, class: "c-btn" %>
+    <% end %>
+  </div>
+
+  <% if current_user %>
+    <ul class="c-hamburger-menu__list">
+      <li class="<%= "c-hamburger-menu__item #{current_page?(root_url) ? "c-hamburger-menu__item--active" : ""}"%>">
+        <%= link_to root_path, 
+          class: "c-hamburger-menu__link" do %>
+          <svg class="c-icon--md c-hamburger-menu__icon">
+            <use xlink:href=<%= image_url("icons/sprite.svg#edit")%>></use>
+          </svg>
+          <span>Home</span>
+        <% end %>
+      </li>
+      <li class="<%="c-hamburger-menu__item #{active_nav == "categories" ? "c-hamburger-menu__item--active" : ""}"%>">
+        <%= link_to categories_path, 
+          class: "c-hamburger-menu__link" do %>
+          <svg class="c-icon--md c-hamburger-menu__icon">
+            <use xlink:href=<%= image_url("icons/sprite.svg#folder")%>></use>
+          </svg>
+          <span>Categories</span>
+        <% end %>
+      </li>
+      <li class="<%="c-hamburger-menu__item #{active_nav == "transactions" ? "c-hamburger-menu__item--active" : ""}"%>">
+        <%= link_to money_transactions_path, 
+          class: "c-hamburger-menu__link" do %>
+          <svg class="c-icon--md c-hamburger-menu__icon">
+            <use xlink:href=<%= image_url("icons/sprite.svg#dollar-sign")%>></use>
+          </svg>
+          <span>Transactions</span>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+  <div class="c-hamburger-menu__legal">
+    &copy; 2022 by Gabriel Santo. All rights reserved.
+  </div>
+</nav>
