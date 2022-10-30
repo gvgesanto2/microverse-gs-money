@@ -5,15 +5,14 @@ class CategoriesTransaction < ApplicationRecord
   after_save :increment_category_totals
   after_destroy :decrement_category_totals
 
-
   private
 
   def increment_category_totals
-    money_transaction = MoneyTransaction.find(self.money_transaction_id)
-    category = Category.find(self.category_id)
+    money_transaction = MoneyTransaction.find(money_transaction_id)
+    category = Category.find(category_id)
 
-    if money_transaction.its_type == "income"
-      category.incomes += money_transaction.price 
+    if money_transaction.its_type == 'income'
+      category.incomes += money_transaction.price
       category.total += money_transaction.price
     else
       category.expenses += money_transaction.price
@@ -24,11 +23,11 @@ class CategoriesTransaction < ApplicationRecord
   end
 
   def decrement_category_totals
-    money_transaction = MoneyTransaction.find(self.money_transaction_id)
-    category = Category.find(self.category_id)
+    money_transaction = MoneyTransaction.find(money_transaction_id)
+    category = Category.find(category_id)
 
-    if money_transaction.its_type == "income"
-      category.incomes -= money_transaction.price 
+    if money_transaction.its_type == 'income'
+      category.incomes -= money_transaction.price
       category.total -= money_transaction.price
     else
       category.expenses -= money_transaction.price

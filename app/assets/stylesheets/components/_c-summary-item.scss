@@ -1,5 +1,5 @@
 .c-summary-item {
-  width: 30rem; 
+  width: 30rem;
   background-color: var(--color-white);
   border-radius: 0.5rem;
   padding: 2rem 2rem 2.2rem 2.2rem;
@@ -64,6 +64,7 @@
 
   &--primary {
     background-color: var(--color-green-300);
+
     .c-summary-item__title,
     .c-summary-item__value,
     .c-summary-item__text {

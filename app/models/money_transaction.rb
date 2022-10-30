@@ -14,5 +14,5 @@ class MoneyTransaction < ApplicationRecord
 
   def set_default_type
     self.its_type ||= :expense
-  end 
+  end
 end

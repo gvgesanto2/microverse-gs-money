@@ -22,7 +22,6 @@
 
   &__content {
     flex: 1;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,13 +29,6 @@
     @include respond-to('min', 'screen-lg') {
       flex-direction: row;
     }
-  }
-
-  &__info {
-    // @include respond-to('min', 'screen-lg') {
-    //   display: flex;
-    //   justify-content: space-between;
-    // }
   }
 
   &__title {
@@ -53,10 +45,6 @@
       -webkit-line-clamp: 2;
       margin-bottom: 0.2rem;
     }
-  }
-
-  &__total {
-
   }
 
   &__date {

@@ -15,9 +15,9 @@
     @include respond-to('min', 'screen-lg') {
       padding: 6.4rem 4.8rem;
     }
-  
+
     & > *:not(:last-child) {
       margin-bottom: 3.2rem;
     }
-  }  
+  }
 }

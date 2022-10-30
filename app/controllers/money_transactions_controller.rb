@@ -46,7 +46,7 @@ class MoneyTransactionsController < ApplicationController
   def create
     @transaction = MoneyTransaction.new(transaction_params)
     @transaction.user = current_user
-    selected_categories = params[:selected_categories]    
+    selected_categories = params[:selected_categories]
 
     respond_to do |format|
       if selected_categories
@@ -65,7 +65,10 @@ class MoneyTransactionsController < ApplicationController
           format.html { redirect_to new_money_transaction_path, alert: 'Error: transaction could not be created.' }
         end
       else
-        format.html { redirect_to new_money_transaction_path, alert: 'Error: transaction could not be created. Please, select at least one category!' }
+        format.html do
+          redirect_to new_money_transaction_path,
+                      alert: 'Error: transaction could not be created. Please, select at least one category!'
+        end
       end
     end
   end
@@ -107,13 +110,13 @@ class MoneyTransactionsController < ApplicationController
     @expenses = 0
 
     @transactions.each do |transaction|
-      @incomes += transaction.price if transaction.its_type == "income"
-      @expenses += transaction.price if transaction.its_type == "expense"
+      @incomes += transaction.price if transaction.its_type == 'income'
+      @expenses += transaction.price if transaction.its_type == 'expense'
     end
 
     @total = @incomes - @expenses
   end
-  
+
   def init_dates
     @first_transaction_date = nil
     @last_transaction_date = nil
@@ -122,9 +125,9 @@ class MoneyTransactionsController < ApplicationController
   end
 
   def set_dates
-    unless @transactions.empty? 
-      incomes = @transactions.where(its_type: "income").order('created_at DESC')
-      expenses = @transactions.where(its_type: "expense").order('created_at DESC')
+    unless @transactions.empty?
+      incomes = @transactions.where(its_type: 'income').order('created_at DESC')
+      expenses = @transactions.where(its_type: 'expense').order('created_at DESC')
       @first_transaction_date = @transactions.last.created_at
       @last_transaction_date = @transactions.first.created_at
 

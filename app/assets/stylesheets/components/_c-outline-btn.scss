@@ -1,5 +1,6 @@
 .c-outline-btn {
   @include centerWithFlex;
+
   width: 100%;
   color: var(--color-text-title);
   background-color: rgba(255, 255, 255, 0.2);
@@ -10,7 +11,7 @@
 
   & > :not(:last-child) {
     margin-right: 1.6rem;
-  } 
+  }
 
   &--red {
     &:hover {
@@ -33,6 +34,6 @@
 
   &--active.c-outline-btn--green {
     background-color: rgba(18, 164, 84, 0.1);
-      border-color: rgba(18, 164, 84, 0.1);
+    border-color: rgba(18, 164, 84, 0.1);
   }
 }

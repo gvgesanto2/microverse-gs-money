@@ -18,8 +18,7 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1 or /categories/1.json
-  def show
-  end
+  def show; end
 
   # GET /categories/new
   def new
@@ -27,8 +26,7 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /categories or /categories.json
   def create
@@ -39,9 +37,9 @@ class CategoriesController < ApplicationController
       if @category.save
         format.html { redirect_to category_url(@category), notice: 'category was successfully created.' }
       else
-        error_msgs = ""
+        error_msgs = ''
         @category.errors.each { |error| error_msgs += error.type }
-    
+
         format.html { redirect_to categories_path, alert: "Error: category could not be created. #{error_msgs}" }
       end
     end

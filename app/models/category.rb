@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   has_many :categories_transactions, dependent: :destroy
   has_many :money_transactions, through: :categories_transactions
   has_one_attached :image
-  
+
   validate :image_type
   validates :name, presence: true
 
@@ -21,5 +21,4 @@ class Category < ApplicationRecord
     errors.add(:image,
                'Error: Please upload an image with one of the following extensions: jpeg, jpg, png, or webp!')
   end
-
 end

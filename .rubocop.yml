@@ -16,7 +16,7 @@ Metrics/MethodLength:
   Include:
     - "app/controllers/*"
     - "app/models/*"
-  Max: 20
+  Max: 25
 Metrics/AbcSize:
   Include:
     - "app/controllers/*"
@@ -31,6 +31,8 @@ Metrics/BlockLength:
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
+  Enabled: false
+Style/GuardClause:
   Enabled: false
 Style/EachForSimpleLoop:
   Enabled: false

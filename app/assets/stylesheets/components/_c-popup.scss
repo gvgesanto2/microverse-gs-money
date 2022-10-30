@@ -45,6 +45,7 @@
 
   &__close-btn {
     @include centerWithFlex;
+
     border: none;
     background-color: transparent;
     color: var(--color-text-title);

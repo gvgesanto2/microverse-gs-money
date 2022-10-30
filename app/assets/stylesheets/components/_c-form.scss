@@ -30,12 +30,12 @@
         @include respond-to('min', 'screen-lg') {
           padding: 0.8rem 1.5rem;
         }
-  
+
         &:hover {
           filter: brightness(1.05);
         }
       }
-  
+
       > input {
         width: 18.5rem;
       }
