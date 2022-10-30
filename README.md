@@ -2,16 +2,22 @@
 
 # GS Money
 
-> A budget App.
+> This app helps you manage your budget by creating different categories of income and expenses. Each category have its own transactions, displaying how much you spent and what you bought. One transaction can be assigned to multiple categories, allowing a more flexible money administration.
 
 ## Built With
 
 - **Languages & Technologies:**
   - Ruby on Rails
+  - Sass
   - Devise
-  - CanCanCan
   - Postgres
   - Docker
+
+## Video Documentation
+Link to video: https://www.loom.com/share/205f9e805db44f08a35637c205df21f7
+
+## Live Demo
+Link to live demo: https://gs-money.herokuapp.com/
 
 ## Getting Started
 
