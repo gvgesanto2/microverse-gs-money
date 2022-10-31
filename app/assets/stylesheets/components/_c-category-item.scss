@@ -2,8 +2,6 @@
   display: flex;
   padding: 1.2rem;
 
-
-
   @include respond-to('min', 'screen-lg') {
     flex-direction: column;
     width: 32rem;

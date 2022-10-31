@@ -20,20 +20,22 @@
   }
 
   &__start {
-    padding: 2.4rem;
+    padding: 3.2rem 2.4rem 0.8rem;
   }
 
   &__center {
     @include centerWithFlex;
 
     flex-direction: column;
-    padding: 4.8rem 2.4rem;
+    padding: 0 2.4rem;
+    margin: 1.2rem 0 3.2rem; 
   }
 
   &__img {
     @include roundElem(11rem);
 
     object-fit: cover;
+    margin-top: 3.2rem;
     margin-bottom: 0.6rem;
   }
 
@@ -95,7 +97,7 @@
     font-size: 1.2rem;
     text-align: center;
     color: var(--color-grey-200);
-    padding: 1.2rem 0.8rem;
+    padding: 1.6rem 2.4rem;
     margin-top: auto;
   }
 

@@ -14,6 +14,14 @@
     <% end %>
   </div>
   <div class="c-hamburger-menu__center">
+    <%= link_to root_path do %>
+      <div class="c-logo c-logo--md">
+        <img class="c-logo__img" src=<%= image_url("logo.svg") %> alt="logo" />
+        <span class="c-logo__title">
+          GS Money
+        </span>
+      </div>
+    <% end %>
     <% if current_user %>
       <%= render "components/attached_img",
         image: current_user.image,
@@ -44,7 +52,7 @@
         <%= link_to root_path, 
           class: "c-hamburger-menu__link" do %>
           <svg class="c-icon--md c-hamburger-menu__icon">
-            <use xlink:href=<%= image_url("icons/sprite.svg#edit")%>></use>
+            <use xlink:href=<%= image_url("icons/sprite.svg#home")%>></use>
           </svg>
           <span>Home</span>
         <% end %>

@@ -39,6 +39,14 @@
     color: var(--color-text-body);
   }
 
+  &--green {
+    color: var(--color-green-400)
+  }
+
+  &--red {
+    color: var(--color-red-300);
+  }
+
   &--bold {
     font-weight: 600;
   }
