@@ -13,7 +13,6 @@
 
   &--active,
   &:hover {
-    // filter: brightness(0.97);
     border-color: var(--color-green-300);
   }
 
@@ -21,6 +20,7 @@
   &__custom-img {
     @include roundElem(5.5rem);
     object-fit: cover;
+    box-shadow: var(--shadow-1);
     margin-bottom: 1.2rem;
   }
 

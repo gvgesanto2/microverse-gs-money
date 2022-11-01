@@ -35,12 +35,12 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: 'category was successfully created.' }
+        format.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
       else
         error_msgs = ''
         @category.errors.each { |error| error_msgs += error.type }
 
-        format.html { redirect_to categories_path, alert: "Error: category could not be created. #{error_msgs}" }
+        format.html { redirect_to categories_path, alert: "Category could not be created. #{error_msgs}" }
       end
     end
   end
@@ -49,7 +49,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: 'category was successfully updated.' }
+        format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -61,7 +61,7 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'category was successfully destroyed.' }
+      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
     end
   end
 

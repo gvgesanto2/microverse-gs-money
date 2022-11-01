@@ -5,6 +5,8 @@ import "controllers"
 
 import ScrollBooster from "scrollbooster";
 
+const HIDDEN_CLASS = 'u-is-hidden';
+
 const setupScrolls = () => {
   const viewports = document.querySelectorAll(".u-scroll-viewport");
   const contents = document.querySelectorAll(".u-scroll-content");
@@ -19,8 +21,23 @@ const setupScrolls = () => {
   });
 }
 
+function hideFlashMessage() {
+  const flashMessage = document.getElementById("flash-message");
+
+  if (flashMessage) {
+    const msgType = flashMessage.getAttribute("data-msg-type");
+    const timeToHide = msgType === "alert" ? 3000 : 2000;
+    
+
+    setTimeout(() => {
+      flashMessage.classList.add(HIDDEN_CLASS);
+    }, timeToHide);
+  }
+}
+
 function init() {
   setupScrolls();
+  hideFlashMessage();
 } 
 
 document.addEventListener("DOMSubtreeModified", init);

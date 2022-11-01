@@ -1,0 +1,62 @@
+.c-flash-msg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 3.2rem 2.4rem;
+
+  &__content {
+    display: flex;
+    position: relative;
+    width: 70vw;
+    max-width: 40rem;
+
+    color: #3172b7;
+    background-color: #ebf8ff;
+    border-radius: 0.8rem;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 1.6rem 3rem 1.6rem 1.6rem;
+  }
+  
+  &__icon {
+    margin: 0.4rem 1.2rem 0 0;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    opacity: 0.8;
+    margin-top: 0.4rem;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    opacity: 0.6;
+    color: inherit;
+  }
+
+  &--notice {
+    .c-flash-msg__content {
+      background-color: #e6fffa;
+      color: #2e656a;
+    }
+  }
+
+  &--alert {
+    .c-flash-msg__content {
+      background-color: #fddede;
+      color: #c53030;
+    }
+  }
+}

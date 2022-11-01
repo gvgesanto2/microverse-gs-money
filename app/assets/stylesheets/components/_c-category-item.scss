@@ -12,6 +12,7 @@
     height: 9rem;
     border-radius: 0.5rem;
     object-fit: cover;
+    box-shadow: var(--shadow-1);
 
     @include respond-to('min', 'screen-lg') {
       width: 100%;
@@ -43,7 +44,7 @@
     padding-right: 0.8rem;
 
     @include respond-to('min', 'screen-lg') {
-      -webkit-line-clamp: 2;
+      // -webkit-line-clamp: 2;
       margin-bottom: 0.2rem;
     }
   }

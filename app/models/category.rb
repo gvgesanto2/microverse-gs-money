@@ -19,6 +19,6 @@ class Category < ApplicationRecord
     return if image.content_type.in?(image_types)
 
     errors.add(:image,
-               'Error: Please upload an image with one of the following extensions: jpeg, jpg, png, or webp!')
+               'Please upload an image with one of the following extensions: jpeg, jpg, png, or webp!')
   end
 end
