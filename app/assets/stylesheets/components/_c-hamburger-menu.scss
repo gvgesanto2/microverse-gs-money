@@ -13,7 +13,7 @@
   z-index: 100;
   visibility: hidden;
   transform: translateX(-100%);
-  transition: transform 0.5s, visibility 0.5s; 
+  transition: transform 0.5s, visibility 0.5s;
 
   &__close-btn {
     color: var(--color-grey-100);
@@ -28,7 +28,7 @@
 
     flex-direction: column;
     padding: 0 2.4rem;
-    margin: 1.2rem 0 3.2rem; 
+    margin: 1.2rem 0 3.2rem;
   }
 
   &__img {
