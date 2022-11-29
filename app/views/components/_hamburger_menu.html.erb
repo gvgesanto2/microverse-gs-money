@@ -32,7 +32,7 @@
       <h3 class="c-hamburger-menu__user-name">
         <%= current_user.name %>
       </h3>
-      <%= button_to "Sing out", destroy_user_session_path, method: :delete, class: "c-btn" %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "c-btn" %>
     <% else %>
       <img 
         class=<%= "c-hamburger-menu__img" %> 
@@ -42,7 +42,7 @@
       <h3 class="c-hamburger-menu__user-name">
         Unknown 
       </h3>
-      <%= link_to "Sing in", new_user_session_path, class: "c-btn" %>
+      <%= link_to "Sign in", new_user_session_path, class: "c-btn" %>
     <% end %>
   </div>
 
