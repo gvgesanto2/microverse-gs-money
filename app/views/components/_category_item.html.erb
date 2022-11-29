@@ -1,3 +1,5 @@
+<% category_total_class = category.total >= 0 ? "t-heading--green" : "t-heading--red" %>
+
 <article class="c-category-item c-card">
   <%= render "components/attached_img",
     image: category.image,
@@ -9,9 +11,9 @@
   <div class="c-category-item__content">
     <div class="c-category-item__info">
       <h3 class="t-text t-text--bold c-category-item__title">
-        <%= category.name %>
+        <%= category.name.capitalize() %>
       </h3>
-      <h3 class="t-heading t-heading--sm c-category-item__total">
+      <h3 class="<%= "t-heading t-heading--sm #{category_total_class} c-category-item__total" %>">
         <%= number_to_currency(category.total, :unit => "$ ") %>
       </h3>
     </div>

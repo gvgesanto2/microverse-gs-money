@@ -1,10 +1,12 @@
 <div class="c-category-option">
-  <input 
-    name=<%= "selected_categories[#{option_index}][id]" %> 
-    type="checkbox" 
-    class="c-category-option__checkbox"
-    value="<%=category.id %>" 
-  />
+  <div class="c-category-option__checkbox-container">
+    <input 
+      name=<%= "selected_categories[#{option_index}][id]" %> 
+      type="checkbox" 
+      class="c-category-option__checkbox"
+      value="<%=category.id %>" 
+    />
+  </div>
   <%= render "components/attached_img", 
     image: category.image,
     image_class: "c-category-option__img",

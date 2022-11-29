@@ -60,14 +60,14 @@ class MoneyTransactionsController < ApplicationController
             )
           end
 
-          format.html { redirect_to money_transactions_path, notice: 'transaction was successfully created.' }
+          format.html { redirect_to money_transactions_path, notice: 'Transaction was successfully created.' }
         else
-          format.html { redirect_to new_money_transaction_path, alert: 'Error: transaction could not be created.' }
+          format.html { redirect_to new_money_transaction_path, alert: 'Transaction could not be created.' }
         end
       else
         format.html do
           redirect_to new_money_transaction_path,
-                      alert: 'Error: transaction could not be created. Please, select at least one category!'
+                      alert: 'Transaction could not be created. Please, select at least one category!'
         end
       end
     end
@@ -77,7 +77,7 @@ class MoneyTransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to transaction_url(@transaction), notice: 'transaction was successfully updated.' }
+        format.html { redirect_to transaction_url(@transaction), notice: 'Transaction was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -89,7 +89,7 @@ class MoneyTransactionsController < ApplicationController
     @transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'transaction was successfully destroyed.' }
+      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
     end
   end
 

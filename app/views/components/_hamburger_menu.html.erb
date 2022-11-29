@@ -14,6 +14,14 @@
     <% end %>
   </div>
   <div class="c-hamburger-menu__center">
+    <%= link_to root_path do %>
+      <div class="c-logo c-logo--md">
+        <img class="c-logo__img" src=<%= image_url("logo.svg") %> alt="logo" />
+        <span class="c-logo__title">
+          GS Money
+        </span>
+      </div>
+    <% end %>
     <% if current_user %>
       <%= render "components/attached_img",
         image: current_user.image,
@@ -24,7 +32,7 @@
       <h3 class="c-hamburger-menu__user-name">
         <%= current_user.name %>
       </h3>
-      <%= button_to "Sing out", destroy_user_session_path, method: :delete, class: "c-btn" %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "c-btn" %>
     <% else %>
       <img 
         class=<%= "c-hamburger-menu__img" %> 
@@ -34,7 +42,7 @@
       <h3 class="c-hamburger-menu__user-name">
         Unknown 
       </h3>
-      <%= link_to "Sing in", new_user_session_path, class: "c-btn" %>
+      <%= link_to "Sign in", new_user_session_path, class: "c-btn" %>
     <% end %>
   </div>
 
@@ -44,7 +52,7 @@
         <%= link_to root_path, 
           class: "c-hamburger-menu__link" do %>
           <svg class="c-icon--md c-hamburger-menu__icon">
-            <use xlink:href=<%= image_url("icons/sprite.svg#edit")%>></use>
+            <use xlink:href=<%= image_url("icons/sprite.svg#home")%>></use>
           </svg>
           <span>Home</span>
         <% end %>
