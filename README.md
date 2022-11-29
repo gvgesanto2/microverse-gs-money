@@ -12,16 +12,15 @@
   - Devise
   - Postgres
   - Docker
-
-## Video Documentation
-Link to video https://www.loom.com/share/205f9e805db44f08a35637c205df21f7
+- **Conventions and Methodologies:**
+  - BEM
 
 ## Live Demo
 Link to live demo: https://gs-money.herokuapp.com/ 
 
 ## Original Design Idea
 
-This app original design idea was made by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+This app's design idea was inspired by a Figma template provided by the [Rocketseat Bootcamp](https://www.rocketseat.com.br/).
 
 ## Getting Started
 
