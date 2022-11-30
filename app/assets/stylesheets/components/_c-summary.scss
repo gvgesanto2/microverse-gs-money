@@ -1,0 +1,23 @@
+.c-summary {
+  display: flex;
+  margin-top: -10rem;
+
+  &__list {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 2.4rem;
+    margin: 0 auto;
+
+    @include respond-to('min', 'screen-lg') {
+      flex-direction: row;
+    }
+
+    & > li:not(:last-child) {
+      margin-left: 1.6rem;
+
+      @include respond-to('min', 'screen-lg') {
+        margin: 0 3.2rem 0 0;
+      }
+    }
+  }
+}

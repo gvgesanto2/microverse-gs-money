@@ -1,0 +1,26 @@
+.c-full-btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 2.1rem;
+  color: var(--color-white);
+  background-color: var(--color-green-300);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 1.8rem 1.2rem 1.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    opacity: 0.95;
+  }
+
+  @include respond-to('min', 'screen-lg') {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+    padding: 2rem 1.2rem;
+  }
+}

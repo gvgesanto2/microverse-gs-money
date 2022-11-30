@@ -1,0 +1,35 @@
+<% class_type = alert ? "c-flash-msg--alert" : "c-flash-msg--notice" %>
+<% title = alert ? "Error" : "Notice" %>
+<% icon = alert ? "alert-circle" : "check-circle" %>
+<% msg_type = alert ? "alert" : "notice" %>
+<% id = "flash-message" %>
+
+<div id=<%= id %> data-msg-type=<%= msg_type %> class="<%= "c-flash-msg #{class_type}" %>">
+  <div class="c-flash-msg__content">
+    <svg class="c-flash-msg__icon c-icon--sm">
+      <use xlink:href=<%= image_url("icons/sprite.svg##{icon}")%>></use>
+    </svg>
+
+    <div class="c-flash-msg__info">
+      <h3 class="c-flash-msg__title">
+        <%= title %>
+      </h3>
+      <p class="c-flash-msg__text">
+        <%= text %>
+      </p>
+    </div>
+
+    <%= button_to nil, 
+      class: "c-flash-msg__btn c-icon-btn",
+      remote: true,
+      data: {
+        controller: "messages",
+        action: "messages#closeFlashMessage",
+        messages_id_param: id
+      } do %>
+      <svg class="c-icon--sm">
+        <use xlink:href=<%= image_url("icons/sprite.svg#x")%>></use>
+      </svg>
+    <% end %>
+  </div>
+</div>

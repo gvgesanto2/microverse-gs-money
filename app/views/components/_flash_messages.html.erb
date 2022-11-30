@@ -1,0 +1,5 @@
+<% if notice %>
+  <%= render "components/flash_message", text: notice %>
+<% elsif alert %>
+  <%= render "components/flash_message", text: alert, alert: true %>
+<% end %>

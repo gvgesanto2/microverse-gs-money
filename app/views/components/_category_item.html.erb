@@ -1,0 +1,25 @@
+<% category_total_class = category.total >= 0 ? "t-heading--green" : "t-heading--red" %>
+
+<article class="c-category-item c-card">
+  <%= render "components/attached_img",
+    image: category.image,
+    image_class: "c-category-item__img",
+    image_alt: "category icon",
+    placeholder: "category_placeholder.png"
+  %>
+  
+  <div class="c-category-item__content">
+    <div class="c-category-item__info">
+      <h3 class="t-text t-text--bold c-category-item__title">
+        <%= category.name.capitalize() %>
+      </h3>
+      <h3 class="<%= "t-heading t-heading--sm #{category_total_class} c-category-item__total" %>">
+        <%= number_to_currency(category.total, :unit => "$ ") %>
+      </h3>
+    </div>
+
+    <p class="t-text t-text--sm c-category-item__date">
+      <%= category.created_at.strftime("%m/%d/%Y") %>
+    </p>
+  </div>
+</article>

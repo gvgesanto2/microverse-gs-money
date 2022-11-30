@@ -1,0 +1,64 @@
+<header class="c-header">
+  <div class="c-header__content">
+    <div class="c-header__start">
+      <%= button_to nil, 
+      class: "c-icon-btn c-header__hamburger-btn", 
+      remote: true,
+      data: {
+        controller: "hamburger",
+        action: "hamburger#open",
+        hamburger_id_param: "hamburger-menu"
+      } do %>
+        <svg class="c-icon--lg">
+          <use xlink:href=<%= image_url("icons/sprite.svg#menu")%>></use>
+        </svg>
+      <% end %>
+      <%= link_to root_path do %>
+        <div class="c-header__logo c-logo">
+          <img class="c-logo__img" src=<%= image_url("logo.svg") %> alt="logo" />
+          <span class="c-logo__title">
+            GS Money
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <div class="c-header__center">
+        <nav class="c-header__nav">
+          <ul class="c-horizontal-list">
+            <li>
+              <%= link_to "home", root_path, 
+                class: "c-header__nav-link #{current_page?(root_url) ? "c-header__nav-link--active" : ""}" 
+              %>
+            </li>
+            <li>
+              <%= link_to "categories", categories_path, 
+                class: "c-header__nav-link #{active_nav == "categories" ? "c-header__nav-link--active" : ""}" 
+              %>
+            </li>
+            <li>
+              <%= link_to "transactions", money_transactions_path, 
+                class: "c-header__nav-link #{active_nav == "transactions" ? "c-header__nav-link--active" : ""}" 
+              %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    <% end %>
+    <div class="c-header__end">
+      <% if js_button %>
+        <%= button_to js_button[:name], nil, 
+          class: "c-btn",
+          remote: true,
+          data: js_button[:data] 
+        %>
+      <% else %>
+        <%= link_to link[:name], link[:route],
+          class: "c-btn"
+        %>
+      <% end %>
+    </div>
+  </div>
+</header>
+
+<%= render "components/hamburger_menu", active_nav: active_nav %>

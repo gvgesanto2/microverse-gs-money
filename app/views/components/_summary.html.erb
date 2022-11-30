@@ -1,0 +1,28 @@
+<div class="c-summary u-scroll-viewport">
+  <ul class="c-summary__list u-scroll-content">
+    <%= render "components/summary_item", 
+      title: "Incomes",
+      icon_path: "icons/sprite.svg#income",
+      value: number_to_currency(@incomes, :unit => "$ "),
+      text: @incomes == 0 ? "No income created" : "Last one created #{time_ago_in_words(@last_income_date)} ago",
+      primary: false
+    %>
+
+    <%= render "components/summary_item", 
+      title: "Expenses",
+      icon_path: "icons/sprite.svg#expense",
+      value: number_to_currency(@expenses, :unit => "$ "),
+      text: @expenses == 0 ? "No expense created" : "Last one created #{time_ago_in_words(@last_expense_date)} ago",
+      primary: false
+    %>
+
+    <%= render "components/summary_item", 
+      title: "Total",
+      icon_path: "icons/sprite.svg#total",
+      value: number_to_currency(@total, :unit => "$ "),
+      text: @transactions.empty? ? "No transaction created" : "#{@first_transaction_date.strftime("%m/%d/%Y")} to #{@last_transaction_date.strftime("%m/%d/%Y")}",
+      primary: true
+    %>
+  </ul>
+</div>
+

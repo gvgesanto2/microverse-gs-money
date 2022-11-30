@@ -1,0 +1,13 @@
+.c-transactions {
+  padding: 0 2.4rem;
+
+  &__header {
+    @include spaceBetween;
+
+    margin-bottom: 1.6rem;
+  }
+
+  &__list > li:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+}

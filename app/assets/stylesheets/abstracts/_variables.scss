@@ -1,0 +1,55 @@
+:root {
+  // Color Pallete
+  --color-primary-300: #6933ff;
+  --color-primary-400: #5429cc;
+  --color-primary-700: #363f5f;
+  --color-grey-100: #f0f2f5;
+  --color-grey-150: #e7e9ee;
+  --color-grey-200: #e1e1e6;
+  --color-grey-250: #d7d7d7;
+  --color-grey-400: #969cb3;
+  --color-grey-500: #737380;
+  --color-green-300: #33cc95;
+  --color-green-400: #12a454;
+  --color-red-300: #e52e4d;
+  --color-black: #000;
+  --color-white: #fff;
+
+  // Other color variables
+  --color-primary: var(--color-primary-400);
+  --color-text-body: var(--color-grey-400);
+  --color-text-title: var(--color-primary-700);
+  --color-bg-body: var(--color-grey-100);
+  --color-positive-value: var(--color-green-400);
+  --color-negative-value: var(--color-red-300);
+
+  // border-radius
+  --border-radius: 0.5rem;
+
+  // Shadows
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-2: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-inset-1: inset 0 1px 0 rgba(208, 215, 222, 0.2);
+
+  // Main Container
+  --main-container-max-width: 160rem;
+}
+
+// Breakpoints
+$breakpoints: (
+  // 23.4375em = 375px
+  'screen-sm': 23.4375em,
+  // 48em = 768px
+  'screen-md': 48em,
+  // 64em = 1024px
+  'screen-lg': 64em,
+  // 90em = 1440px
+  'screen-xlg': 90em,
+  // 160em = 2560px
+  'screen-hg': 160em
+);
+
+$bp-types: (
+  'max': max-width,
+  'min': min-width,
+);

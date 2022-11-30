@@ -1,0 +1,39 @@
+.c-outline-btn {
+  @include centerWithFlex;
+
+  width: 100%;
+  color: var(--color-text-title);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid var(--color-text-body);
+  border-radius: var(--border-radius);
+  padding: 1.6rem 0;
+  transition: all 0.2s;
+
+  & > :not(:last-child) {
+    margin-right: 1.6rem;
+  }
+
+  &--red {
+    &:hover {
+      background-color: rgba(229, 46, 77, 0.1);
+      border-color: rgba(229, 46, 77, 0.1);
+    }
+  }
+
+  &--green {
+    &:hover {
+      background-color: rgba(18, 164, 84, 0.1);
+      border-color: rgba(18, 164, 84, 0.1);
+    }
+  }
+
+  &--active.c-outline-btn--red {
+    background-color: rgba(229, 46, 77, 0.1);
+    border-color: rgba(229, 46, 77, 0.1);
+  }
+
+  &--active.c-outline-btn--green {
+    background-color: rgba(18, 164, 84, 0.1);
+    border-color: rgba(18, 164, 84, 0.1);
+  }
+}

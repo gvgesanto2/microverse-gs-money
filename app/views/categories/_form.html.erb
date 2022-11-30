@@ -1,0 +1,25 @@
+<%= form_with url: categories_path, method: :post, class: "c-form", scope: :category do |form| %>
+  <div class="c-form__upload">
+    <img class="c-form__img" src=<%= image_url("category_placeholder.png") %> alt="" />
+
+    <div class="c-form__upload-box">
+      <%= form.label :upload, for: "category_image" %>
+      <%= form.file_field :image %>
+    </div>
+  </div>
+
+  <div class="c-form__input-group">
+    <div class="c-form__field">
+      <%= form.text_field :name, 
+        class: "c-input",
+        placeholder: "Category name...", 
+        required: true, 
+        'aria-label': 'category name' 
+      %>
+    </div>
+  </div>
+
+  <div class="c-form__action">
+    <%= form.submit "Create category", class: "c-full-btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<li class="c-summary-item <%= primary ? "c-summary-item--primary" : "" %>">
+  <header class="c-summary-item__header">
+    <h3 class="c-summary-item__title">
+      <%= title %>
+    </h3>
+    <svg class="c-summary-item__icon">
+      <use xlink:href=<%= image_url(icon_path)%>></use>
+    </svg>
+  </header>
+
+  <p class="c-summary-item__value">
+    <%= value %>
+  </p>
+  <p class="c-summary-item__text">
+    <%= text %>
+  </p>
+</li>

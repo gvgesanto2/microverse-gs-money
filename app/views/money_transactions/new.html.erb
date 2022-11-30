@@ -1,0 +1,36 @@
+<div id="main-container" class="l-container">
+  <%= render 'components/header',
+    js_button: nil,
+    link: {
+      name: "New transaction",
+      route: new_money_transaction_path,
+    },
+    active_nav: ""
+  %>
+  <main class="l-main">
+    <section class="l-form-section">
+      <div class="l-form-section__content c-card">
+        <header class="l-form-section__header">
+          <h2 class="t-heading t-heading--md t-heading--bold">Create transaction</h2>
+          <%= link_to money_transactions_path, class: "c-icon-btn" do %>
+            <svg class="c-icon--md">
+              <use xlink:href=<%= image_url("icons/sprite.svg#chevron-left")%>></use>
+            </svg>
+          <% end %>
+        </header>
+
+        <% if @categories.empty? %>
+          <p>
+            You need to create at least one category first!
+          </p>
+        <% else %>
+          <%= render "form", transaction: @transaction, categories: @categories %>
+        <% end %>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+
+

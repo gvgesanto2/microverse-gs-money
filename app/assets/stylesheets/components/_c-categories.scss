@@ -1,0 +1,19 @@
+.c-categories {
+  padding: 0 2.4rem;
+
+  &__header {
+    @include spaceBetween;
+
+    margin-bottom: 1.6rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.8rem;
+
+    @include respond-to('min', 'screen-lg') {
+      grid-template-columns: repeat(auto-fit, minmax(32rem, min-content));
+    }
+  }
+}

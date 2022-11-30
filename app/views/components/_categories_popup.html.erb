@@ -1,0 +1,27 @@
+<div 
+  class="c-popup u-is-hidden" 
+  id=<%= popup_id %>
+>
+  <div class="c-popup__overlay"></div>
+  <div class="c-popup__window">
+    <header class="c-popup__header">
+      <h2 class="t-heading t-heading--md t-heading--bold">
+        Create category
+      </h2>
+      <%= button_to nil, 
+        class: "c-popup__close-btn", 
+        remote: true,
+        data: {
+          controller: "popup",
+          action: "popup#closePopup",
+          popup_id_param: popup_id
+        } do %>
+        <svg class="c-icon--sm">
+          <use xlink:href=<%= image_url("icons/sprite.svg#x")%>></use>
+        </svg>
+      <% end %>
+    </header>
+    
+    <%= render "categories/form" %>
+  </div> 
+</div>

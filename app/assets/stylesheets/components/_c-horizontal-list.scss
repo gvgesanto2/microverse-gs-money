@@ -1,0 +1,8 @@
+.c-horizontal-list {
+  display: flex;
+  align-items: center;
+
+  & > li:not(:last-child) {
+    margin-right: 1.2rem;
+  }
+}

@@ -1,0 +1,54 @@
+<div id="main-container" class="l-container">
+  <%= render 'components/header',
+    js_button: {
+      name: "New category",
+      data: {
+        controller: "popup",
+        action: "popup#openPopup",
+        popup_id_param: "create-category-popup"
+      }
+    },
+    link: nil,
+    active_nav: current_page?(root_url) ? "" : "categories"
+  %>
+  <main class="l-main">
+    <section class="p-categories">
+
+      <%= render "components/categories_summary",
+        total: @categories.length,
+        negatives: @negatives.length,
+        positives: @positives.length 
+      %>
+
+      <section class="c-categories">
+        <header class="c-categories__header">
+          <h2 class="t-heading t-heading--md">
+            <%= pluralize(@categories.length, "Category") %>
+          </h2>
+          <%= link_to root_path, class: "c-icon-btn" do %>
+            <svg class="c-icon--lg">
+              <use xlink:href=<%= image_url("icons/sprite.svg#chevron-left")%>></use>
+            </svg>
+          <% end %>
+        </header>
+
+        <% if @categories.empty? %>
+          <p>
+            You don't have any category yet. Create one!
+          </p>
+        <% else %>
+          <div class="c-categories__grid">
+            <% @categories.each do |category| %>
+              <%= link_to category_money_transactions_path(category) do %>
+                <%= render "components/category_item", category: category %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    </section>
+  </main>
+</div>
+
+
+

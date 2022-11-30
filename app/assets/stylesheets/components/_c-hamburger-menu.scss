@@ -1,0 +1,108 @@
+.c-hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  max-width: 35rem;
+  width: 80vw;
+  height: 100%;
+  color: var(--color-grey-100);
+  background-color: var(--color-primary);
+  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition: transform 0.5s, visibility 0.5s;
+
+  &__close-btn {
+    color: var(--color-grey-100);
+  }
+
+  &__start {
+    padding: 3.2rem 2.4rem 0.8rem;
+  }
+
+  &__center {
+    @include centerWithFlex;
+
+    flex-direction: column;
+    padding: 0 2.4rem;
+    margin: 1.2rem 0 3.2rem;
+  }
+
+  &__img {
+    @include roundElem(11rem);
+
+    object-fit: cover;
+    margin-top: 3.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  &__user-name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 1.2rem;
+  }
+
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    &::before {
+      content: '';
+      width: 3px;
+      height: 100%;
+      background-color: var(--color-primary-300);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleY(0);
+      transition:
+        transform 0.2s,
+        width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+    }
+
+    &:hover::before,
+    &--active::before {
+      width: 100%;
+      transform: scaleY(1);
+    }
+
+    &:active::before {
+      background-color: var(--color-primary-300);
+    }
+  }
+
+  &__icon {
+    margin-right: 2rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--color-grey-100);
+    position: relative;
+    padding: 1.5rem 3rem;
+    z-index: 10;
+  }
+
+  &__legal {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--color-grey-200);
+    padding: 1.6rem 2.4rem;
+    margin-top: auto;
+  }
+
+  &--active {
+    transform: translateX(0%);
+    visibility: visible;
+  }
+}
